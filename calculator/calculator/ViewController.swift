@@ -9,7 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    @IBOutlet weak var AC: UIButton!
     @IBOutlet weak var results: UILabel!
     @IBAction func AC(_ sender: UIButton) {
     }
@@ -28,8 +37,10 @@ class ViewController: UIViewController {
     @IBAction func equal(_ sender: UIButton) {
     }
     @IBAction func zero(_ sender: UIButton) {
+        results.text = "0"
     }
     @IBAction func one(_ sender: UIButton) {
+        results.text = "1"
     }
     @IBAction func two(_ sender: UIButton) {
     }
@@ -37,21 +48,16 @@ class ViewController: UIViewController {
     }
     @IBAction func four(_ sender: UIButton) {
     }
-    
-    @IBAction func five(_ sender: Any) {
+    @IBAction func five(_ sender: UIButton) {
     }
-    
-    @IBOutlet weak var AC: UIButton!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBAction func six(_ sender: UIButton) {
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func seven(_ sender: UIButton) {
     }
-
+    @IBAction func eight(_ sender: UIButton) {
+    }
+    @IBAction func nine(_ sender: UIButton) {
+    }
 
 }
 
