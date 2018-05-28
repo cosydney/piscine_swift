@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         resultlabel.text = "0"
         currentOperation = Operation.Empty
         runningNumber = ""
@@ -83,15 +82,12 @@ class ViewController: UIViewController {
     }
     @IBAction func onEqualPressed(_ sender: UIButton) {
         print("=")
-        print("YO")
         if leftValStr != "" {
-            print("YOYO")
             processOperation(operation: currentOperation)
         }
     }
     
     func processOperation(operation: Operation) {
-        print("YO")
         if currentOperation != Operation.Empty {
             if runningNumber != ""
             {
@@ -103,8 +99,16 @@ class ViewController: UIViewController {
                     {
                         result = "\(Double(leftValStr)! * Double(rightValStr)!)"
                     } else if currentOperation == Operation.Divide {
-                        print("I'M HERE")
-                        result = "\(Double(leftValStr)! / Double(rightValStr)!)"
+                        if rightValStr == "0" {
+                            result = "Error"
+                            runningNumber = ""
+                            leftValStr = "0"
+                            rightValStr = "0"
+                            resultlabel.text = "Error"
+                            currentOperation = Operation.Empty
+                        } else {
+                            result = "\(Double(leftValStr)! / Double(rightValStr)!)"
+                        }
                     } else if currentOperation == Operation.Subtract {
                         result = "\(Double(leftValStr)! - Double(rightValStr)!)"
                     } else if currentOperation == Operation.Add {
