@@ -10,17 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBOutlet weak var results: UILabel!
-    
     enum Operation: String {
         case Divide = "/"
         case Multiply = "*"
@@ -28,66 +21,106 @@ class ViewController: UIViewController {
         case Add = "+"
         case Empty = "Empty"
     }
-        
-//    @IBAction func one(_ sender: UIButton) {
-//        results.text = "1"
-//        print("1")
-//    }
-//    @IBAction func two(_ sender: UIButton) {
-//        results.text = "2"
-//        print("2")
-//    }
-//    @IBAction func three(_ sender: Any) {
-//        results.text = "3"
-//        print("3")
-//    }
-//    @IBAction func four(_ sender: UIButton) {
-//        results.text = "4"
-//        print("4")
-//    }
-//    @IBAction func five(_ sender: UIButton) {
-//        results.text = "5"
-//        print("5")
-//    }
-//    @IBAction func six(_ sender: UIButton) {
-//        results.text = "6"
-//        print("6")
-//    }
-//    @IBAction func seven(_ sender: UIButton) {
-//        results.text = "7"
-//        print("7")
-//    }
-//    @IBAction func eight(_ sender: Any) {
-//        results.text = "8"
-//        print("8")
-//    }
-//    @IBAction func nine(_ sender: UIButton) {
-//        results.text = "9"
-//        print("9")
-//    }
-//    @IBAction func zero(_ sender: UIButton) {
-//        results.text = "0"
-//        print("0")
-//    }
-    @IBAction func AC(_ sender: UIButton) {
+    var currentOperation = Operation.Empty
+    var runningNumber = ""
+    var leftValStr = ""
+    var rightValStr = ""
+    var result = ""
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        resultlabel.text = "0"
+        currentOperation = Operation.Empty
+        runningNumber = ""
+        leftValStr = ""
+        rightValStr = ""
+        result = ""
+    }
+    
+
+    @IBOutlet weak var resultlabel: UILabel!
+    @IBAction func numberPressed(_ sender: UIButton) {
+            print("\(sender.tag)")
+            runningNumber += "\(sender.tag)"
+            resultlabel.text = runningNumber
+    }
+    @IBAction func onACPressed(_ sender: UIButton) {
         print("AC")
+        result = "0"
+        runningNumber = ""
+        leftValStr = "0"
+        rightValStr = "0"
+        resultlabel.text = "0"
+        currentOperation = Operation.Empty
     }
-    @IBAction func neg(_ sender: UIButton) {
+    @IBAction func OnNegPressed(_ sender: UIButton) {
         print("NEG")
+        if (runningNumber != "") {
+            runningNumber = "\(-1 * Double(runningNumber)!)"
+            resultlabel.text = runningNumber
+        } else if leftValStr != "" {
+            leftValStr = "\(-1 * Double(leftValStr)!)"
+            resultlabel.text = leftValStr
+        }
+        
     }
-    @IBAction func plus(_ sender: UIButton) {
-        print("plus")
+    @IBAction func OnAddPressed(_ sender: UIButton) {
+        print("+")
+        processOperation(operation: .Add)
     }
-    @IBAction func multiply(_ sender: UIButton) {
-        print("*")
-    }
-    @IBAction func minus(_ sender: UIButton) {
+    @IBAction func onSubtractPressed(_ sender: UIButton) {
         print("-")
+        processOperation(operation: .Subtract)
     }
-    @IBAction func divide(_ sender: UIButton) {
+    @IBAction func onDividePressed(_ sender: UIButton) {
         print("/")
+        processOperation(operation: .Divide)
     }
-    @IBAction func equal(_ sender: UIButton) {
+    @IBAction func onMultiplyPressed(_ sender: UIButton) {
+        print("*")
+        processOperation(operation: .Multiply)
+    }
+    @IBAction func onEqualPressed(_ sender: UIButton) {
         print("=")
+        if leftValStr != "" {
+            processOperation(operation: currentOperation)
+        }
     }
+    
+    func processOperation(operation: Operation) {
+        if currentOperation != Operation.Empty {
+            if runningNumber != ""
+            {
+                rightValStr = runningNumber
+                runningNumber = ""
+                if leftValStr != ""
+                {
+                    if currentOperation == Operation.Multiply
+                    {
+                        result = "\(Double(leftValStr)! * Double(rightValStr)!)"
+                    } else if currentOperation == Operation.Divide {
+                        result = "\(Double(leftValStr)! / Double(rightValStr)!)"
+                    } else if currentOperation == Operation.Subtract {
+                        result = "\(Double(leftValStr)! - Double(rightValStr)!)"
+                    } else if currentOperation == Operation.Add {
+                        result = "\(Double(leftValStr)! + Double(rightValStr)!)"
+                    }
+                }
+                leftValStr = result
+                resultlabel.text = result
+            }
+            currentOperation = operation
+        }
+        else
+        {
+            //first time an operator has been pressed
+            leftValStr = runningNumber
+            runningNumber = ""
+            currentOperation = operation
+        }
+    }
+
+    
 }
+
