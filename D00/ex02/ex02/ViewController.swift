@@ -75,16 +75,7 @@ class ViewController: UIViewController {
     }
     @IBAction func onDividePressed(_ sender: UIButton) {
         print("/")
-        if rightValStr == 0 {
-            result == "Error"
-            runningNumber = ""
-            leftValStr = "0"
-            rightValStr = "0"
-            resultlabel.text = "0"
-            currentOperation = Operation.Empty
-        } else {
-            processOperation(operation: .Divide)
-        }
+        processOperation(operation: .Divide)
     }
     @IBAction func onMultiplyPressed(_ sender: UIButton) {
         print("*")
@@ -92,12 +83,15 @@ class ViewController: UIViewController {
     }
     @IBAction func onEqualPressed(_ sender: UIButton) {
         print("=")
+        print("YO")
         if leftValStr != "" {
+            print("YOYO")
             processOperation(operation: currentOperation)
         }
     }
     
     func processOperation(operation: Operation) {
+        print("YO")
         if currentOperation != Operation.Empty {
             if runningNumber != ""
             {
@@ -109,6 +103,7 @@ class ViewController: UIViewController {
                     {
                         result = "\(Double(leftValStr)! * Double(rightValStr)!)"
                     } else if currentOperation == Operation.Divide {
+                        print("I'M HERE")
                         result = "\(Double(leftValStr)! / Double(rightValStr)!)"
                     } else if currentOperation == Operation.Subtract {
                         result = "\(Double(leftValStr)! - Double(rightValStr)!)"
