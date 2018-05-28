@@ -75,16 +75,7 @@ class ViewController: UIViewController {
     }
     @IBAction func onDividePressed(_ sender: UIButton) {
         print("/")
-        if rightValStr == 0 {
-            result == "Error"
-            runningNumber = ""
-            leftValStr = "0"
-            rightValStr = "0"
-            resultlabel.text = "0"
-            currentOperation = Operation.Empty
-        } else {
-            processOperation(operation: .Divide)
-        }
+        processOperation(operation: .Divide)
     }
     @IBAction func onMultiplyPressed(_ sender: UIButton) {
         print("*")
