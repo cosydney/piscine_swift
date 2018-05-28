@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  calculator
+//  D01
 //
-//  Created by Sydney Cohen on 24/05/2018.
-//  Copyright © 2018 Sydney Cohen. All rights reserved.
+//  Created by Sydney COHEN on 5/28/18.
+//  Copyright © 2018 Sydney COHEN. All rights reserved.
 //
 
 import UIKit
