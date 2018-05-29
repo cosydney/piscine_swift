@@ -1,3 +1,5 @@
+import Foundation
+
 class Deck: NSObject {
     static let allSpades    : [Card] = Value.allValue.map({Card(c:Color.Spade, v:$0)})
     static let allHearts    : [Card] = Value.allValue.map({Card(c:Color.Heart, v:$0)})
