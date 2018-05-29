@@ -1,21 +1,25 @@
 import Foundation
 
 class Card: NSObject {
-    var color : Color
-    var value : Value
+    var c : Color
+    var v : Value
 
     override var description: String {
-        return "\(self.color) of \(self.value)"
+        if self.v.rawValue > 10 {
+            return "(\(self.v), \(self.c))"
+        } else {
+            return "(\(self.v.rawValue), \(self.c))"
+        }
     }
 
-    init(Color color:Color, Value value:Value) {
-        self.color = color
-        self.value = value
+    init(c: Color, v: Value) {
+        self.c = c
+        self.v = v
         super.init()
     }
     override func isEqual(_ object: Any?) -> Bool {
         if let obj = object as? Card{
-            return (obj.color == self.color && obj.value == self.value)
+            return (obj.c == self.c && obj.v == self.v)
         }
         return false
     }
@@ -23,5 +27,5 @@ class Card: NSObject {
 
 func ==(cardone: Card, cardtwo: Card) -> Bool
 {
-    return (cardone.color == cardtwo.color && cardone.value == cardtwo.value )
+    return (cardone.c == cardtwo.c && cardone.v == cardtwo.v )
 }
