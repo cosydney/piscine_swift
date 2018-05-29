@@ -72,7 +72,43 @@ class Deck: NSObject {
     static let allClubs     : [Card] = Value.allValue.map({Card(c:Color.Club, v:$0)})
     static let allDiamonds  : [Card] = Value.allValue.map({Card(c:Color.Diamond, v:$0)})
     static let allCards     : [Card] = allSpades + allHearts + allClubs + allDiamonds
+    var cards               : [Card] = allSpades + allHearts + allClubs + allDiamonds
+    var discards            : [Card] = []
+    var outs                : [Card] = []
+    
+    init(shuffle:Bool) {
+        if shuffle {
+            cards.shuffle()
+        }
+        super.init()
+    }
+    
+    override var description: String {
+        return "\(self.cards)"
+    }
+    
+    func draw() -> Card? {
+        let firstcard : Card?
+        firstcard = self.cards.first
+        if firstcard != nil {
+            outs.append(firstcard!)
+            cards.removeFirst()
+            return firstcard
+        }
+        else {
+            return nil
+        }
+    }
+    
+    func fold(c: Card) {
+        if let found = outs.index(of: c) {
+            outs.remove(at: found)
+            discards.append(c)
+        }
+    }
+    
 }
+
 extension Array {
     mutating func shuffle(){
         for i in indices {
@@ -84,16 +120,70 @@ extension Array {
     }
 }
 
+
+// Main ex04
+print("Tacking a shuffled deck")
+var shufflecards = Deck(shuffle: true)
+print(shufflecards)
+
+print("Tacking a sorted deck")
+var sorted = Deck(shuffle: false)
+print(sorted)
+
+var sorted = Deck(shuffle: false)
+print("\n\n taking a sorted deck")
+print(sorted)
+print("\ndrawing first two card of a sorted deck")
+sorted.draw()
+sorted.draw()
+print(sorted)
+print("**printing cards out:", sorted.outs)
+
+var shuffleddeck = Deck(shuffle: true)
+print("\n\n taking a shuffleddeck deck")
+print(shuffleddeck)
+print("\ndrawing first two card of a shuffleddeck deck")
+shuffleddeck.draw()
+shuffleddeck.draw()
+print(shuffleddeck)
+print("printing cards out:", shuffleddeck.outs)
+
+var shuffleddeck = Deck(shuffle: true)
+print("\n\n taking a shuffled deck")
+print(shuffleddeck)
+print("\ndrawing all cards + 1 of a shuffled deck")
+for card in shuffleddeck.cards {
+    shuffleddeck.draw()
+}
+print(shuffleddeck)
+print("printing cards out:", shuffleddeck.outs)
+
+var shuffleddeck = Deck(shuffle: true)
+print(shuffleddeck)
+var handpicker = shuffleddeck.cards[1]
+print("\n\nhandpicking a card from a shuffled deck", handpicker)
+print("\ndrawing first two cards of a shuffled deck")
+shuffleddeck.draw()
+shuffleddeck.draw()
+print("cards out:", shuffleddeck.outs)
+print("cards discards:", shuffleddeck.discards)
+print("folding selected cards")
+shuffleddeck.fold(c: handpicker)
+print("cards out:", shuffleddeck.outs)
+print("cards discards:", shuffleddeck.discards)
+
+
+
 // Main ex03
-var shufflecards = Deck.allCards
-print("Taking a brand new deck")
-print(shufflecards)
-print("Shuffling cards")
-shufflecards.shuffle()
-print(shufflecards)
-print("Shuffling cards again")
-shufflecards.shuffle()
-print(shufflecards)
+//var shufflecards = Deck.allCards
+//print("Taking a brand new deck")
+//print(shufflecards)
+//print("Shuffling cards")
+//shufflecards.shuffle()
+//print(shufflecards)
+//print("Shuffling cards again")
+//shufflecards.shuffle()
+//print(shufflecards)
 
 
 //Main ex02
