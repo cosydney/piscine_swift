@@ -66,6 +66,8 @@ func ==(cardone: Card, cardtwo: Card) -> Bool
 }
 
 //Deck
+import Foundation
+
 class Deck: NSObject {
     static let allSpades    : [Card] = Value.allValue.map({Card(c:Color.Spade, v:$0)})
     static let allHearts    : [Card] = Value.allValue.map({Card(c:Color.Heart, v:$0)})
@@ -128,49 +130,48 @@ print(shufflecards)
 
 print("Tacking a sorted deck")
 var sorted = Deck(shuffle: false)
-print(sorted)
-
-var sorted = Deck(shuffle: false)
 print("\n\n taking a sorted deck")
 print(sorted)
 print("\ndrawing first two card of a sorted deck")
-sorted.draw()
-sorted.draw()
+var draw = sorted.draw()
+draw = sorted.draw()
 print(sorted)
 print("**printing cards out:", sorted.outs)
 
-var shuffleddeck = Deck(shuffle: true)
-print("\n\n taking a shuffleddeck deck")
-print(shuffleddeck)
-print("\ndrawing first two card of a shuffleddeck deck")
-shuffleddeck.draw()
-shuffleddeck.draw()
-print(shuffleddeck)
-print("printing cards out:", shuffleddeck.outs)
+var shuffledeck0 = Deck(shuffle: true)
+print("\n\n taking a shuffledeck0 deck")
+print(shuffledeck0)
+print("\ndrawing first two card of a shuffledeck0 deck")
+draw = shuffledeck0.draw()
+draw = shuffledeck0.draw()
+print(shuffledeck0)
+print("printing cards out:", shuffledeck0.outs)
 
 var shuffleddeck = Deck(shuffle: true)
 print("\n\n taking a shuffled deck")
 print(shuffleddeck)
 print("\ndrawing all cards + 1 of a shuffled deck")
-for card in shuffleddeck.cards {
-    shuffleddeck.draw()
+for _ in shuffleddeck.cards {
+    draw = shuffleddeck.draw()
 }
 print(shuffleddeck)
 print("printing cards out:", shuffleddeck.outs)
 
-var shuffleddeck = Deck(shuffle: true)
-print(shuffleddeck)
-var handpicker = shuffleddeck.cards[1]
+var shuffled2 = Deck(shuffle: true)
+print("\n\n taking a new shuffled deck\n\n", shuffled2)
+var handpicker = shuffled2.cards[1]
 print("\n\nhandpicking a card from a shuffled deck", handpicker)
 print("\ndrawing first two cards of a shuffled deck")
-shuffleddeck.draw()
-shuffleddeck.draw()
-print("cards out:", shuffleddeck.outs)
-print("cards discards:", shuffleddeck.discards)
-print("folding selected cards")
-shuffleddeck.fold(c: handpicker)
-print("cards out:", shuffleddeck.outs)
-print("cards discards:", shuffleddeck.discards)
+draw = shuffled2.draw()
+draw = shuffled2.draw()
+print("cards out:", shuffled2.outs)
+print("cards discards:", shuffled2.discards)
+print("\nfolding selected cards:", handpicker)
+shuffled2.fold(c: handpicker)
+print("cards out:", shuffled2.outs)
+print("cards discards:", shuffled2.discards)
+
+
 
 
 
