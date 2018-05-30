@@ -29,7 +29,7 @@ class AddNoteViewController: UIViewController {
         if namefield.text! != "" {
             if segue.identifier == "backSegue" {
                 if let vc = segue.destination as? ViewController {
-                      vc.persons.append((namefield.text!, descriptionfield.text!, 2018))
+                    vc.persons.append(Person(name: namefield.text!,description: descriptionfield.text!,date: datefield.date))
                 }
             }
         }
@@ -38,17 +38,5 @@ class AddNoteViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "backSegue", sender: self)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

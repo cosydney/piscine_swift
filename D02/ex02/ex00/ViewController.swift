@@ -13,13 +13,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var persons = Data.peoples
 
     @IBOutlet weak var personTableView: UITableView!
-//                didSet {
-//                    personTableview.delegate = self
-//                    personTableview.dataSource = self
-//                }
-
-//    }
-    
 
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,14 +21,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell")
-        cell?.textLabel?.text = persons[indexPath.row].0
-        cell?.detailTextLabel?.text = String(persons[indexPath.row].1)
+        cell?.textLabel?.text = persons[indexPath.row].name
+        cell?.detailTextLabel?.text = String(persons[indexPath.row].description)
         return cell!
     }
     
     @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
-        print("HELO", segue.identifier)
-        print(segue)
         self.personTableView.reloadData()
     }
 
