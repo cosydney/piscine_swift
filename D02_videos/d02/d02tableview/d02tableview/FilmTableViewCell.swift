@@ -9,5 +9,15 @@
 import UIKit
 
 class FilmTableViewCell: UITableViewCell {
-    var film : (String, Int)?
+    
+    var film : (String, Int)? {
+        didSet {
+            if let f = film {
+                yearLabel?.text = String(f.1)
+                nameLabel?.text = f.0
+            }
+        }
+    }
+    
 }
+
