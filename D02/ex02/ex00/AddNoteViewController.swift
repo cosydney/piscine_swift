@@ -25,11 +25,21 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var descriptionfield: UITextField!
     @IBOutlet weak var datefield: UIDatePicker!
 
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        print ("namefield", namefield.text)
-        print ("desc", descriptionfield.text)
-        print ("datefield", datefield.date)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if namefield.text! != "" {
+            if segue.identifier == "backSegue" {
+                if let vc = segue.destination as? ViewController {
+                      vc.persons.append((namefield.text!, descriptionfield.text!, 2018))
+                }
+            }
+        }
     }
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "backSegue", sender: self)
+    }
+    
+    
 
     /*
     // MARK: - Navigation

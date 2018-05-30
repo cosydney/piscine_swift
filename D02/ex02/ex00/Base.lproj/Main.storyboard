@@ -53,6 +53,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="yiJ-KJ-LJa"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="caZ-Ef-BBe"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,7 +70,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableview" destination="iFO-vg-eEs" id="hjX-U4-hAc"/>
+                        <outlet property="personTableView" destination="iFO-vg-eEs" id="l8r-IR-WE6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -140,9 +144,11 @@
                         <outlet property="datefield" destination="pkE-t5-Cf4" id="xNf-3e-mqe"/>
                         <outlet property="descriptionfield" destination="PAN-Jh-J1b" id="uVp-lD-SqP"/>
                         <outlet property="namefield" destination="Whw-Pj-cE3" id="LkM-ID-Xhu"/>
+                        <segue destination="bKI-ok-4qI" kind="unwind" identifier="backSegue" unwindAction="unwindToThisViewControllerWithSegue:" id="EUX-Ds-7C8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QaU-AI-ewd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bKI-ok-4qI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1468" y="139.880059970015"/>
         </scene>
