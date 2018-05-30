@@ -14,16 +14,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var personTableView: UITableView!
 
+//    override func viewDidLoad()
+//    {
+//        super.viewDidLoad()
+//        personTableView.estimatedRowHeight = 200
+//        personTableView.rowHeight = UITableViewAutomaticDimension
+//    }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return persons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "personCell")
-        cell?.textLabel?.text = persons[indexPath.row].name
-        cell?.detailTextLabel?.text = String(persons[indexPath.row].description)
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personCell") as! PersonTableViewCell
+        cell.person = persons[indexPath.row]
+        cell.setLabels()
+        return cell
     }
     
     @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
