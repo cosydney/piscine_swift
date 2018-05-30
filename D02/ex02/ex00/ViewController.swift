@@ -14,12 +14,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var personTableView: UITableView!
 
-//    override func viewDidLoad()
-//    {
-//        super.viewDidLoad()
-//        personTableView.estimatedRowHeight = 200
-//        personTableView.rowHeight = UITableViewAutomaticDimension
-//    }
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        personTableView.estimatedRowHeight = 270
+        personTableView.rowHeight = UITableViewAutomaticDimension
+    }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return persons.count

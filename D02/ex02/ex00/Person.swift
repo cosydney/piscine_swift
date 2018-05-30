@@ -23,7 +23,7 @@ class Person {
 
 struct Data {
     static let peoples : [Person] = [
-        Person(name: "Test", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", date: Date()),
+        Person(name: "General John Sedgwick", description: "General John Sedgwick was killed by a sniper in the American Civil War shortly after uttering the words \"They couldn't hit an elephant at this distance.\" (Contrary to popular belief, though, they weren't his last words. They were his second-last. His last words were agreeing that dodging was in fact a good idea.)", date: Date()),
         Person(name: "Jesus", description: "Crucification", date: Date()),
         Person(name: "Mickael Jackson", description: "Drogue", date: Date()),
         Person(name: "Albert Einstein", description: "Rupture d'anévrisme", date: Date()),

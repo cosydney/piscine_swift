@@ -35,28 +35,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="239.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTs-KS-wPE">
-                                                    <rect key="frame" x="15" y="65" width="345" height="174"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTs-KS-wPE">
+                                                    <rect key="frame" x="15" y="44" width="345" height="193"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr5-8A-KtX">
-                                                    <rect key="frame" x="212" y="5" width="156" height="52"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr5-8A-KtX">
+                                                    <rect key="frame" x="218" y="5" width="152" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPM-iU-AiY">
-                                                    <rect key="frame" x="15" y="5" width="181" height="52"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPM-iU-AiY">
+                                                    <rect key="frame" x="15" y="20" width="37" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dr5-8A-KtX" firstAttribute="top" secondItem="Gtv-eJ-sEh" secondAttribute="top" constant="5" id="ASR-pr-PDf"/>
+                                                <constraint firstAttribute="trailing" secondItem="PTs-KS-wPE" secondAttribute="trailing" constant="15" id="DUI-sb-FoX"/>
+                                                <constraint firstAttribute="trailing" secondItem="Dr5-8A-KtX" secondAttribute="trailing" constant="5" id="Y1y-rg-T6e"/>
+                                                <constraint firstItem="uPM-iU-AiY" firstAttribute="leading" secondItem="Gtv-eJ-sEh" secondAttribute="leading" constant="15" id="ZG4-ai-mOp"/>
+                                                <constraint firstAttribute="bottom" secondItem="PTs-KS-wPE" secondAttribute="bottom" constant="10" id="btX-WI-pIR"/>
+                                                <constraint firstItem="PTs-KS-wPE" firstAttribute="leading" secondItem="Gtv-eJ-sEh" secondAttribute="leading" constant="15" id="gUe-hh-xhq"/>
+                                                <constraint firstItem="uPM-iU-AiY" firstAttribute="top" secondItem="Gtv-eJ-sEh" secondAttribute="top" constant="20" symbolic="YES" id="lMO-cH-KjW"/>
+                                                <constraint firstItem="PTs-KS-wPE" firstAttribute="top" secondItem="uPM-iU-AiY" secondAttribute="bottom" constant="8" symbolic="YES" id="o1q-dj-XVT"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" adjustable="YES"/>
@@ -92,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="476" y="139.880059970015"/>
         </scene>
-        <!--Add Note View Controller-->
+        <!--Add a Person-->
         <scene sceneID="Rij-pp-EEo">
             <objects>
                 <viewController id="kK6-55-xjO" customClass="AddNoteViewController" customModule="ex00" customModuleProvider="target" sceneMemberID="viewController">
@@ -100,25 +107,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7z-aY-EEc">
-                                <rect key="frame" x="0.0" y="54" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Add a Person" id="o1s-8T-UpC">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="FB0-EZ-ZCJ">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bK5-jv-1ER">
-                                                <rect key="frame" x="313" y="7" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                                <connections>
-                                                    <action selector="buttonPressed:" destination="kK6-55-xjO" eventType="touchUpInside" id="fG9-j0-OZB"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pkE-t5-Cf4">
-                                <rect key="frame" x="27" y="291" width="320" height="152"/>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-Pj-cE3">
+                                <rect key="frame" x="0.0" y="82" width="375" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PAN-Jh-J1b">
+                                <rect key="frame" x="0.0" y="128" width="375" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pkE-t5-Cf4">
+                                <rect key="frame" x="27" y="177" width="320" height="152"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="152" id="m2u-pj-ILf"/>
                                 </constraints>
@@ -126,35 +128,32 @@
                                     <!--2018-05-30 10:31:54 +0000-->
                                 </date>
                             </datePicker>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-Pj-cE3">
-                                <rect key="frame" x="0.0" y="132" width="375" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PAN-Jh-J1b">
-                                <rect key="frame" x="0.0" y="196" width="375" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PAN-Jh-J1b" firstAttribute="centerX" secondItem="pkE-t5-Cf4" secondAttribute="centerX" id="2Fh-vX-hk0"/>
-                            <constraint firstItem="Whw-Pj-cE3" firstAttribute="leading" secondItem="N7z-aY-EEc" secondAttribute="leading" id="7fa-Uq-niC"/>
+                            <constraint firstItem="Whw-Pj-cE3" firstAttribute="top" secondItem="u6e-40-i7X" secondAttribute="top" constant="62" id="5Ly-le-aCo"/>
                             <constraint firstItem="pkE-t5-Cf4" firstAttribute="top" secondItem="PAN-Jh-J1b" secondAttribute="bottom" constant="65" id="9Ck-B6-Rgc"/>
                             <constraint firstAttribute="trailing" secondItem="Whw-Pj-cE3" secondAttribute="trailing" id="LSY-e0-WNU"/>
-                            <constraint firstItem="u6e-40-i7X" firstAttribute="top" secondItem="N7z-aY-EEc" secondAttribute="top" constant="10" id="O4g-dB-JRH"/>
-                            <constraint firstItem="Whw-Pj-cE3" firstAttribute="top" secondItem="N7z-aY-EEc" secondAttribute="bottom" constant="34" id="PlH-Ow-6k3"/>
                             <constraint firstItem="Whw-Pj-cE3" firstAttribute="leading" secondItem="wbb-Pm-HVA" secondAttribute="leading" id="b70-9E-eNj"/>
                             <constraint firstItem="Whw-Pj-cE3" firstAttribute="leading" secondItem="PAN-Jh-J1b" secondAttribute="leading" id="cJi-Ql-Mx6"/>
                             <constraint firstItem="Whw-Pj-cE3" firstAttribute="trailing" secondItem="PAN-Jh-J1b" secondAttribute="trailing" id="ekW-oK-ApW"/>
-                            <constraint firstItem="Whw-Pj-cE3" firstAttribute="trailing" secondItem="N7z-aY-EEc" secondAttribute="trailing" id="iP4-oX-ZSf"/>
                             <constraint firstItem="PAN-Jh-J1b" firstAttribute="top" secondItem="Whw-Pj-cE3" secondAttribute="bottom" constant="34" id="pwq-Cz-eP0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u6e-40-i7X"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add a Person" id="o1s-8T-UpC">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="FB0-EZ-ZCJ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bK5-jv-1ER">
+                                <rect key="frame" x="329" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="kK6-55-xjO" eventType="touchUpInside" id="fG9-j0-OZB"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="datefield" destination="pkE-t5-Cf4" id="xNf-3e-mqe"/>
                         <outlet property="descriptionfield" destination="PAN-Jh-J1b" id="uVp-lD-SqP"/>
