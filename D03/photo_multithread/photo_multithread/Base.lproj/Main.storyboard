@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t2z-bs-5Ls">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gallery-->
+        <scene sceneID="8vC-bA-e2g">
+            <objects>
+                <collectionViewController title="Gallery" id="t2z-bs-5Ls" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="F8b-w5-uc5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4c9-EV-gdN">
+                            <size key="itemSize" width="166" height="114"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectioncell" id="acW-1m-zCA" customClass="CollectionViewCell" customModule="photo_multithread" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="166" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="166" height="114"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R3R-eK-h3Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="166" height="114"/>
+                                        </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gAs-I4-pKF">
+                                            <rect key="frame" x="73" y="47" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="R3R-eK-h3Y" firstAttribute="centerX" secondItem="acW-1m-zCA" secondAttribute="centerX" id="9Ma-rI-4W5"/>
+                                    <constraint firstItem="R3R-eK-h3Y" firstAttribute="width" secondItem="acW-1m-zCA" secondAttribute="width" id="aZQ-tK-jrn"/>
+                                    <constraint firstItem="R3R-eK-h3Y" firstAttribute="centerY" secondItem="acW-1m-zCA" secondAttribute="centerY" id="lqW-AA-ZGa"/>
+                                    <constraint firstItem="R3R-eK-h3Y" firstAttribute="height" secondItem="acW-1m-zCA" secondAttribute="height" id="zfc-nb-BpY"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="gAs-I4-pKF" id="9G8-hl-GpX"/>
+                                    <outlet property="imageView" destination="R3R-eK-h3Y" id="1WW-RL-74a"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="t2z-bs-5Ls" id="sCh-nw-B9G"/>
+                            <outlet property="delegate" destination="t2z-bs-5Ls" id="gWq-OV-fod"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2l-FV-kHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="757.60000000000002" y="107.49625187406298"/>
+        </scene>
+    </scenes>
+</document>
