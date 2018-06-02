@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, APITwitterDelegate, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
+class ViewController: UIViewController, APITwitterDelegate, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate, UIScrollViewDelegate {
     
     func receiveTweets(tweets: [Tweet]) {
         self.tweets = tweets
@@ -21,6 +21,7 @@ class ViewController: UIViewController, APITwitterDelegate, UITableViewDataSourc
     
     @IBOutlet weak var tweetTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    
     var tweets: [Tweet] = []
     var token: String = ""
     let query:String = "&src=typd&lang=fr&count=100&result_type=recent"
@@ -83,6 +84,10 @@ class ViewController: UIViewController, APITwitterDelegate, UITableViewDataSourc
         return tweets.count
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tweetTableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath) as! TableViewCell
         
@@ -95,6 +100,7 @@ class ViewController: UIViewController, APITwitterDelegate, UITableViewDataSourc
         
         return cell
     }
+    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text != nil {

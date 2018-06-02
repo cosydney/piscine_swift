@@ -23,7 +23,6 @@ class APIController {
     }
     
     func get_tweet(search: String) {
-        print(search)
         let url = NSURL(string: "https://api.twitter.com/1.1/search/tweets.json?" + search)
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "GET"
@@ -61,7 +60,6 @@ class APIController {
                         }
                     }
                 }
-                print(tweets)
             } catch (let err){
                 DispatchQueue.main.async(execute: {
                     self.delegate?.errorTweets(error: err as NSError)
