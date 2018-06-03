@@ -8,15 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		250FF5BD20C2CDC80015B33F /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250FF5BC20C2CDC80015B33F /* TopicsViewController.swift */; };
+		250FF5BF20C2E8880015B33F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250FF5BE20C2E8880015B33F /* LoginViewController.swift */; };
+		250FF5CA20C30E970015B33F /* TopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250FF5C920C30E970015B33F /* TopicsTableViewCell.swift */; };
+		2590F20F20C3E29900F29FA3 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590F20E20C3E29900F29FA3 /* MessagesTableViewController.swift */; };
+		2590F21120C3E32200F29FA3 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590F21020C3E32200F29FA3 /* MessageTableViewCell.swift */; };
+		4AC37B6120C428D900531FB7 /* AddTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC37B6020C428D900531FB7 /* AddTopicView.swift */; };
 		D59B498220C28E4F00BFB042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B498120C28E4F00BFB042 /* AppDelegate.swift */; };
 		D59B498420C28E4F00BFB042 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B498320C28E4F00BFB042 /* ViewController.swift */; };
 		D59B498720C28E4F00BFB042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59B498520C28E4F00BFB042 /* Main.storyboard */; };
 		D59B498920C28E4F00BFB042 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D59B498820C28E4F00BFB042 /* Assets.xcassets */; };
 		D59B498C20C28E4F00BFB042 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59B498A20C28E4F00BFB042 /* LaunchScreen.storyboard */; };
+		D59B499A20C334FD00BFB042 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B499920C334FD00BFB042 /* APIController.swift */; };
+		D59B499D20C340ED00BFB042 /* codableJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B499B20C340ED00BFB042 /* codableJSON.swift */; };
+		D59B499E20C340ED00BFB042 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B499C20C340ED00BFB042 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		250FF5BC20C2CDC80015B33F /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
+		250FF5BE20C2E8880015B33F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		250FF5C920C30E970015B33F /* TopicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCell.swift; sourceTree = "<group>"; };
+		2590F20E20C3E29900F29FA3 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
+		2590F21020C3E32200F29FA3 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		4AC37B6020C428D900531FB7 /* AddTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicView.swift; sourceTree = "<group>"; };
 		D59B497E20C28E4F00BFB042 /* Rush00.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rush00.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59B498120C28E4F00BFB042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D59B498320C28E4F00BFB042 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +37,9 @@
 		D59B498820C28E4F00BFB042 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D59B498B20C28E4F00BFB042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D59B498D20C28E4F00BFB042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D59B499920C334FD00BFB042 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		D59B499B20C340ED00BFB042 /* codableJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = codableJSON.swift; path = Rush00/Model/codableJSON.swift; sourceTree = SOURCE_ROOT; };
+		D59B499C20C340ED00BFB042 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Rush00/Extensions.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,8 +58,29 @@
 			children = (
 				D59B498320C28E4F00BFB042 /* ViewController.swift */,
 				250FF5BC20C2CDC80015B33F /* TopicsViewController.swift */,
+				250FF5BE20C2E8880015B33F /* LoginViewController.swift */,
+				2590F20E20C3E29900F29FA3 /* MessagesTableViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		250FF5CB20C30FD90015B33F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AC37B6020C428D900531FB7 /* AddTopicView.swift */,
+				250FF5C920C30E970015B33F /* TopicsTableViewCell.swift */,
+				2590F21020C3E32200F29FA3 /* MessageTableViewCell.swift */,
+			);
+			name = View;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		2590F20D20C3DBE000F29FA3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D59B499B20C340ED00BFB042 /* codableJSON.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D59B497520C28E4F00BFB042 = {
@@ -65,12 +102,16 @@
 		D59B498020C28E4F00BFB042 /* Rush00 */ = {
 			isa = PBXGroup;
 			children = (
+				2590F20D20C3DBE000F29FA3 /* Model */,
+				250FF5CB20C30FD90015B33F /* View */,
 				250FF5BB20C2CDA80015B33F /* Controller */,
 				D59B498120C28E4F00BFB042 /* AppDelegate.swift */,
 				D59B498520C28E4F00BFB042 /* Main.storyboard */,
 				D59B498820C28E4F00BFB042 /* Assets.xcassets */,
 				D59B498A20C28E4F00BFB042 /* LaunchScreen.storyboard */,
 				D59B498D20C28E4F00BFB042 /* Info.plist */,
+				D59B499920C334FD00BFB042 /* APIController.swift */,
+				D59B499C20C340ED00BFB042 /* Extensions.swift */,
 			);
 			path = Rush00;
 			sourceTree = "<group>";
@@ -147,9 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				250FF5BF20C2E8880015B33F /* LoginViewController.swift in Sources */,
 				D59B498420C28E4F00BFB042 /* ViewController.swift in Sources */,
+				D59B499A20C334FD00BFB042 /* APIController.swift in Sources */,
+				2590F21120C3E32200F29FA3 /* MessageTableViewCell.swift in Sources */,
+				D59B499E20C340ED00BFB042 /* Extensions.swift in Sources */,
+				2590F20F20C3E29900F29FA3 /* MessagesTableViewController.swift in Sources */,
+				D59B499D20C340ED00BFB042 /* codableJSON.swift in Sources */,
 				D59B498220C28E4F00BFB042 /* AppDelegate.swift in Sources */,
 				250FF5BD20C2CDC80015B33F /* TopicsViewController.swift in Sources */,
+				250FF5CA20C30E970015B33F /* TopicsTableViewCell.swift in Sources */,
+				4AC37B6120C428D900531FB7 /* AddTopicView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,13 +335,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9K6SF2D4HP;
 				INFOPLIST_FILE = Rush00/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jblondea.Rush00;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rush00;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,13 +353,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9K6SF2D4HP;
 				INFOPLIST_FILE = Rush00/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jblondea.Rush00;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rush00;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

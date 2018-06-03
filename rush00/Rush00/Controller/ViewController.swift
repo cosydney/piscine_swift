@@ -30,6 +30,10 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     var token: String?
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated:true);
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,36 +48,20 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         let urlComps = NSURLComponents(string: "https://api.intra.42.fr/oauth/authorize")!
         urlComps.queryItems = queryItems as [URLQueryItem]
         let url = urlComps.url!
-        print(url)
-        
         let accessRequest = NSMutableURLRequest(url: url)
         accessRequest.httpMethod = "POST"
         
         webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.load(accessRequest as URLRequest)
-        
-        
-        
-        
-        
-        
-//        self.authUser(login: "jblondea", password: PasswordHolder.password) {
-//            state, code in
-//
-//            self.authApp(code: code, state: state) {
-//                dic in
-//                
-//            }
-//        }
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "login_segue" {
             if let destinationVC = segue.destination as? TopicsViewController {
                 let token = sender as? String
-                destinationVC.token = token
-                print("prepared")
+                destinationVC.apiController = APIController(token: token!)
             }
         }
     }
@@ -214,12 +202,12 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         let url = urlComps.url!
         print(url)
         
-        var accessRequest = NSMutableURLRequest(url: url)
+        let accessRequest = NSMutableURLRequest(url: url)
         accessRequest.httpMethod = "POST"
         //        accessRequest.setValue("Bearer " + token! , forHTTPHeaderField: "Authorization")
         let task  = URLSession.shared.dataTask(with: accessRequest as URLRequest) {
             (data: Data?, urlResponse: URLResponse?, error: Error?) in
-            print(urlResponse)
+            
             if let err = error {
                 print(err)
                 return
