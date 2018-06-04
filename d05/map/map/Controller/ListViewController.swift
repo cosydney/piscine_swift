@@ -46,6 +46,19 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.detailTextLabel?.text = addresses[indexPath.row].address
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        alert
+//        let alertController = UIAlertController(title: "Hint", message: "You have selected row \(indexPath.row).", preferredStyle: .alert)
+//        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+//        alertController.addAction(alertAction)
+//        present(alertController, animated: true, completion: nil)
+        print("switching index")
+        self.tabBarController?.selectedIndex = 0
+
+    }
+    
+    
 
 }
 
