@@ -21,12 +21,26 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fE4-kp-glF">
                                 <rect key="frame" x="0.0" y="216" width="375" height="184"/>
                             </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SHg-Gv-Nbw">
+                                <rect key="frame" x="81" y="556" width="212" height="29"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="9pv-A4-QxB" eventType="valueChanged" id="HUd-Qg-q45"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fE4-kp-glF" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="4nh-Q6-uTj"/>
+                            <constraint firstItem="SHg-Gv-Nbw" firstAttribute="centerX" secondItem="fE4-kp-glF" secondAttribute="centerX" id="Q6W-ja-K59"/>
                             <constraint firstItem="fE4-kp-glF" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="TtW-pK-SLu"/>
                             <constraint firstItem="fE4-kp-glF" firstAttribute="height" secondItem="tsR-hK-woN" secondAttribute="height" id="dQp-70-BWV"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="SHg-Gv-Nbw" secondAttribute="bottom" constant="34" id="pbh-L7-B0R"/>
                             <constraint firstItem="fE4-kp-glF" firstAttribute="centerY" secondItem="PQr-Ze-W5v" secondAttribute="centerY" id="wNc-ig-oBd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>

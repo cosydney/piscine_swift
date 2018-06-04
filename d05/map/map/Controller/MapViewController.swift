@@ -12,6 +12,18 @@ import MapKit
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
+        switch (sender.selectedSegmentIndex) {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .satellite
+        default:
+            mapView.mapType = .hybrid
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
