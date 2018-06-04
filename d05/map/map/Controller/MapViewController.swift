@@ -8,10 +8,39 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    let locationMgr = CLLocationManager()
+
+    
+    @IBAction func locate(_ sender: UIButton) {
+        print("I'm being pressed")
+        let status  = CLLocationManager.authorizationStatus()
+        
+        if status == .notDetermined {
+            locationMgr.requestWhenInUseAuthorization()
+            return
+        }
+        
+        if status == .denied || status == .restricted {
+            let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        locationMgr.delegate = self
+        locationMgr.startUpdatingLocation()
+        
+        self.centerMapOnLocation(location: locationMgr.location!)
+        
+    }
     
     @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
         switch (sender.selectedSegmentIndex) {
@@ -27,6 +56,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        mapView.showsUserLocation = true;
         let initialLocation = CLLocation(latitude: 48.8965523, longitude: 2.3162668)
         centerMapOnLocation(location: initialLocation)
         
@@ -48,7 +78,15 @@ class MapViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentLocation = locations.last!
+        print("Current location: \(currentLocation)")
+    }
 
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error \(error)")
+    }
 
 }
 
@@ -75,3 +113,4 @@ extension UIViewController: MKMapViewDelegate {
         return view
     }
 }
+
