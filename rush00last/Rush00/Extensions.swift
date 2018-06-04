@@ -7,13 +7,16 @@ extension String {
     var forumTimeFormat: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        let myString = self.components(separatedBy: ".")[0]
-        if myString == nil {
+        let myStrings = self.components(separatedBy: ".")
+        guard myStrings.count == 2 else { return "" }
+        let myString = myStrings[0]
+        if myString == "" {
             return ""
         }
         let mydate = dateFormatter.date(from: myString)
+        guard let date = mydate else { return "" }
         dateFormatter.dateFormat = "d MMM yyyy HH:mm"
-        let new = dateFormatter.string(from: mydate!)
+        let new = dateFormatter.string(from: date)
         return new 
     }
 }
@@ -32,7 +35,7 @@ extension String {
 //}
 
 func decodeDataArray<T>(data: Data) -> [T]? {
-    var tmpData = try? JSONDecoder().decode([T].self, from: data)
+    let tmpData = try? JSONDecoder().decode([T].self, from: data)
 //    print(tmpData)
 //    print(tmpData![0].created_at.forumTimeFormat)
 //    print(tmpData![0].created_at)
@@ -46,6 +49,6 @@ func decodeDataArray<T>(data: Data) -> [T]? {
 }
 
 func decodeData<T>(data: Data) -> T? where T: Decodable {
-    var tmpData = try? JSONDecoder().decode(T.self, from: data)
+    let tmpData = try? JSONDecoder().decode(T.self, from: data)
     return tmpData
 }

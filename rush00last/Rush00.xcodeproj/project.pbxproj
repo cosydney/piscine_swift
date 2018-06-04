@@ -12,7 +12,8 @@
 		250FF5CA20C30E970015B33F /* TopicsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250FF5C920C30E970015B33F /* TopicsTableViewCell.swift */; };
 		2590F20F20C3E29900F29FA3 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590F20E20C3E29900F29FA3 /* MessagesTableViewController.swift */; };
 		2590F21120C3E32200F29FA3 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590F21020C3E32200F29FA3 /* MessageTableViewCell.swift */; };
-		4AC37B6120C428D900531FB7 /* AddTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC37B6020C428D900531FB7 /* AddTopicView.swift */; };
+		2590F21320C45A1800F29FA3 /* EditMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590F21220C45A1800F29FA3 /* EditMessageViewController.swift */; };
+		4AC37B6320C4323800531FB7 /* AddTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC37B6220C4323800531FB7 /* AddTopicViewController.swift */; };
 		D59B498220C28E4F00BFB042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B498120C28E4F00BFB042 /* AppDelegate.swift */; };
 		D59B498420C28E4F00BFB042 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59B498320C28E4F00BFB042 /* ViewController.swift */; };
 		D59B498720C28E4F00BFB042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59B498520C28E4F00BFB042 /* Main.storyboard */; };
@@ -29,7 +30,8 @@
 		250FF5C920C30E970015B33F /* TopicsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTableViewCell.swift; sourceTree = "<group>"; };
 		2590F20E20C3E29900F29FA3 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		2590F21020C3E32200F29FA3 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
-		4AC37B6020C428D900531FB7 /* AddTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicView.swift; sourceTree = "<group>"; };
+		2590F21220C45A1800F29FA3 /* EditMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMessageViewController.swift; sourceTree = "<group>"; };
+		4AC37B6220C4323800531FB7 /* AddTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicViewController.swift; sourceTree = "<group>"; };
 		D59B497E20C28E4F00BFB042 /* Rush00.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rush00.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59B498120C28E4F00BFB042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D59B498320C28E4F00BFB042 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,8 @@
 				250FF5BC20C2CDC80015B33F /* TopicsViewController.swift */,
 				250FF5BE20C2E8880015B33F /* LoginViewController.swift */,
 				2590F20E20C3E29900F29FA3 /* MessagesTableViewController.swift */,
+				4AC37B6220C4323800531FB7 /* AddTopicViewController.swift */,
+				2590F21220C45A1800F29FA3 /* EditMessageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -67,7 +71,6 @@
 		250FF5CB20C30FD90015B33F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4AC37B6020C428D900531FB7 /* AddTopicView.swift */,
 				250FF5C920C30E970015B33F /* TopicsTableViewCell.swift */,
 				2590F21020C3E32200F29FA3 /* MessageTableViewCell.swift */,
 			);
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2590F21320C45A1800F29FA3 /* EditMessageViewController.swift in Sources */,
 				250FF5BF20C2E8880015B33F /* LoginViewController.swift in Sources */,
 				D59B498420C28E4F00BFB042 /* ViewController.swift in Sources */,
 				D59B499A20C334FD00BFB042 /* APIController.swift in Sources */,
@@ -195,10 +199,10 @@
 				D59B499E20C340ED00BFB042 /* Extensions.swift in Sources */,
 				2590F20F20C3E29900F29FA3 /* MessagesTableViewController.swift in Sources */,
 				D59B499D20C340ED00BFB042 /* codableJSON.swift in Sources */,
+				4AC37B6320C4323800531FB7 /* AddTopicViewController.swift in Sources */,
 				D59B498220C28E4F00BFB042 /* AppDelegate.swift in Sources */,
 				250FF5BD20C2CDC80015B33F /* TopicsViewController.swift in Sources */,
 				250FF5CA20C30E970015B33F /* TopicsTableViewCell.swift in Sources */,
-				4AC37B6120C428D900531FB7 /* AddTopicView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

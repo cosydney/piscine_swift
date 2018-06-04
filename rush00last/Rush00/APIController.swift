@@ -16,6 +16,7 @@ class APIController {
     weak var delegate : APIDelegate?
     let token : String
     var login: String? = nil
+    var author_id: Int? = nil
     let root: String = "https://api.intra.42.fr"
     
     init(token: String) {
@@ -203,7 +204,7 @@ class APIController {
         )
     }
     
-    func createMessage(messageCreate: Message, completionHandler: @escaping (Data) -> Void) {
+    func createMessage(messageCreate: MessageCreationHandler, completionHandler: @escaping (Data) -> Void) {
 //        {
 //            "message": {
 //                "author_id": "6",
@@ -215,6 +216,7 @@ class APIController {
 
 //        let data = try? JSONSerialization.data(withJSONObject: messageCreate)
         let data = try? JSONEncoder().encode(messageCreate)
+        print(String(data: data!, encoding: .utf8)!)
         query(
             url: "/v2/messages",
             body: data,
@@ -232,15 +234,11 @@ class APIController {
         )
     }
     
-    func updateMessage(message: MessageReception, completionHandler: @escaping (Data) -> Void) {
-        let updateData = [
-            "message": [
-                "content": message.content,
-            ]
-        ]
-        let data = try? JSONEncoder().encode(updateData)
+    func updateMessage(message: MessageCreationHandler, completionHandler: @escaping (Data) -> Void) {
+        let data = try? JSONEncoder().encode(message.message)
+        print("update message body", String(data: data!, encoding: .utf8)!)
         query(
-            url: "/v2/topics/\(message.id)",
+            url: "/v2/messages/\(message.id)",
             body: data,
             headers: [("Content-Type", "application/json")],
             method: "PATCH",
@@ -257,8 +255,10 @@ class APIController {
                 d in
                 do {
                     if let dic: NSDictionary = try JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
+//                        print(dic)
                         self.login = dic.value(forKey: "login") as? String
-                        print("login loaded : ", self.login!)
+                        self.author_id = dic.value(forKey: "id") as? Int
+                        print("login loaded :", self.login!, "with author id :", self.author_id!)
                     }
                 }
                 catch (let err) {

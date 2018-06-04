@@ -11,11 +11,19 @@ import UIKit
 class TopicsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var apiController: APIController?
+    let activityIndicator: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        ai.color = .black
+        ai.translatesAutoresizingMaskIntoConstraints = false
+        return ai
+    }()
 
     @IBAction func addTopic(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addTopic", sender: nil)
     }
     @IBOutlet weak var tableview: UITableView!
+
+
 
     // var topics : [Topic]? = [
     //     Topic(id: 10, name: "Hello hello", author:Author(login:"rpirelli"), created_at: "27 Juin 2018",
@@ -27,7 +35,23 @@ class TopicsViewController: UIViewController, UITableViewDataSource, UITableView
     //     ]
 
     var topics: [TopicReceiver]?
+    var selectedTopic: TopicReceiver?
 
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+
+        return refreshControl
+    }()
+
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        print("refreshing")
+        reloadTopics()
+        refreshControl.endRefreshing()
+    }
 
     @IBAction func logout(_ sender: UIButton) {
         performSegue(withIdentifier: "unwind_to_login_segue", sender: nil)
@@ -44,44 +68,68 @@ class TopicsViewController: UIViewController, UITableViewDataSource, UITableView
 //                vc.Messages = topics![indexPath.row].messages
             }
         }
+        else if (segue.identifier == "addTopic") {
+            if let addTopicVC = segue.destination as? AddTopicViewController {
+                addTopicVC.apiController = self.apiController
+            }
+        }
+        else if (segue.identifier == "updateTopic") {
+            if let updateTopicVC = segue.destination as? AddTopicViewController {
+//                let indexPath = self.tableview.indexPathForSelectedRow!
+                let topic = sender as? TopicReceiver
+                updateTopicVC.apiController = self.apiController
+                updateTopicVC.topic = topic
+            }
+        }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableview.estimatedRowHeight = 270
-        self.tableview.rowHeight = UITableViewAutomaticDimension
-        setupAlerts()
-        // Do any additional setup after loading the view.
-        
-        apiController?.me() {_ in}
 
+    func reloadTopics() {
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true;
+            self.activityIndicator.hidesWhenStopped = true;
+            self.activityIndicator.startAnimating();
+        }
         apiController?.topics(sort: "-updated_at") {
             d in
             let topics: [TopicReceiver]? = decodeData(data: d)
             self.topics = topics
             DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false;
+//                self.indicatorView.removeFromSuperview()
+                self.activityIndicator.stopAnimating();
                 self.tableview.reloadData()
             }
-////            self.apiController?.updateTopic(topic: self.topics![1]) {
-////                d in
-//////                let messages: [MessageReception]? = decodeData(data: d)
-////                print(String(data: d, encoding: .utf8)!)
-////            }
-////            self.apiController?.topicMessage(topic: self.topics![0]) {
-////                d in
-////                let messages: [MessageReception]? = decodeData(data: d)
-////                print(messages)
-//////                self.topics = topics
-//////                DispatchQueue.main.async {
-//////                    self.tableview.reloadData()
-//////                }
-////
-////            }
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(activityIndicator)
+     
         
-//        apiController?.topics() {
+        setupActivityIndicator()
+//        UIApplication.shared.isNetworkActivityIndicatorVisible = true;
+//        activityindicator.hidesWhenStopped = true;
+//        activityindicator.startAnimating();
+        self.tableview.estimatedRowHeight = 270
+        self.tableview.rowHeight = UITableViewAutomaticDimension
+        setupAlerts()
+        self.tableview.addSubview(self.refreshControl)
+        // Do any additional setup after loading the view.
+
+//        apiController?.me() {
+//            _ in
+//            self.reloadTopics()
+//        }
+
+//        apiController?.topics(sort: "-updated_at") {
 //            d in
-//            print(String(data: d, encoding: .utf8)!)
+//            let topics: [TopicReceiver]? = decodeData(data: d)
+//            self.topics = topics
+//            DispatchQueue.main.async {
+//                self.tableview.reloadData()
+//            }
 //        }
 
         // Topic creation
@@ -118,7 +166,7 @@ class TopicsViewController: UIViewController, UITableViewDataSource, UITableView
 //                }
 //            }
 //        }
-        
+
         // Troll request
 //        let message = Message(
 //            author_id: "14587",
@@ -157,6 +205,21 @@ class TopicsViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.setHidesBackButton(true, animated:true);
+        if apiController?.login != nil {
+            reloadTopics()
+        }
+        else {
+            apiController?.me() {
+                _ in
+                self.reloadTopics()
+            }
+        }
+    }
+    
+    func setupActivityIndicator() {
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -188,40 +251,51 @@ class TopicsViewController: UIViewController, UITableViewDataSource, UITableView
         accessDenied.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (action: UIAlertAction!) in
             print("Access Denied!")
         }))
-        
+
         deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             print("Delete request")                   //////PlaceHolder
+            guard let topic = self.selectedTopic else {
+                print("no selected topic to delete!")
+                return
+            }
+            self.apiController?.deleteTopic(topic: topic){
+                _ in
+                print("topic deleted")
+                self.reloadTopics()
+            }
         }))
-        
+
         deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Handle Cancel Logic here")
         }))
-        
+
         editAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            // never used
             print("Edit Request")                   //////PlaceHolder
         }))
-        
+
         editAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Handle Cancel Logic here")
         }))
-        
+
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let topic = topics![indexPath.row]
+        selectedTopic = topic
 
-        
         /////////////////////Edit Action
         let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
             if self.apiController?.login! != topic.author.login{           /////////PlaceHolder
                 self.present(self.accessDenied, animated: true, completion:  nil)
             }
             else {
-                 self.present(self.editAlert, animated: true, completion: nil)
+                print(topic)
+                self.performSegue(withIdentifier: "updateTopic", sender: topic)
             }
         })
         editAction.backgroundColor = UIColor.blue
-        
+
         ////////////////////Delete Action
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
             if self.apiController?.login! != topic.author.login {         /////////////////PlaceHolder
@@ -246,7 +320,7 @@ class TopicsViewController: UIViewController, UITableViewDataSource, UITableView
 
 //    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
 //        let cell = tableview.dequeueReusableCell(withIdentifier: "topics_cell") as! TopicsTableViewCell
-//        
+//
 //        if "clanier" != cell.author.text {
 //            print("Hello")
 //            return nil
@@ -265,7 +339,7 @@ class TopicsViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableview.dequeueReusableCell(withIdentifier: "topics_cell") as! TopicsTableViewCell
         cell.tag = indexPath.row
         cell.author.text = topics![indexPath.row].author.login
-        cell.date.text = topics![indexPath.row].created_at
+        cell.date.text = topics![indexPath.row].created_at.forumTimeFormat
         cell.title.text = topics![indexPath.row].name
 
         return cell

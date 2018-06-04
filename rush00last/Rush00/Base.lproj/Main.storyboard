@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -143,12 +144,13 @@
                         <segue destination="qvj-JL-9P4" kind="unwind" identifier="unwind_to_login_segue" unwindAction="prepareForUnwindWithSegue:" id="S2V-Yp-9B3"/>
                         <segue destination="TR4-fo-qwA" kind="show" identifier="messages_segue" id="M5K-Qb-fRF"/>
                         <segue destination="HeC-WO-tbw" kind="show" identifier="addTopic" id="gYi-zX-Gua"/>
+                        <segue destination="HeC-WO-tbw" kind="show" identifier="updateTopic" id="Gqm-lL-Nbv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abh-PP-AN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qvj-JL-9P4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="117"/>
+            <point key="canvasLocation" x="1788" y="116.49175412293854"/>
         </scene>
         <!--Messages Table View Controller-->
         <scene sceneID="Vcm-nm-Xas">
@@ -158,6 +160,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <textField key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add message" textAlignment="natural" minimumFontSize="17" id="qRf-au-3gS">
+                            <rect key="frame" x="0.0" y="413" width="375" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                        </textField>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messagecell" rowHeight="385" id="rdU-lf-fxW" customClass="MessageTableViewCell" customModule="Rush00" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="385"/>
@@ -209,36 +218,100 @@
                             <outlet property="delegate" destination="TR4-fo-qwA" id="S9Y-Du-rtb"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="messageField" destination="qRf-au-3gS" id="7pi-1p-LCg"/>
+                        <segue destination="bnm-hO-Vtb" kind="show" identifier="editMessageSegue" id="33S-Is-aei"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xM-4k-PCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2869.5999999999999" y="117.39130434782609"/>
         </scene>
+        <!--Edit message-->
+        <scene sceneID="quL-Qt-Q1f">
+            <objects>
+                <viewController id="bnm-hO-Vtb" customClass="EditMessageViewController" customModule="Rush00" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Uo-bp-heW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="53R-cu-fAd">
+                                <rect key="frame" x="16" y="85" width="343" height="354"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Jk4-xo-f2F"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit message" id="gPU-I1-7WI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="RSk-Ru-TZ3">
+                            <connections>
+                                <action selector="doneButton:" destination="bnm-hO-Vtb" id="PSQ-41-cC5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="RSk-Ru-TZ3" id="B97-7f-iAE"/>
+                        <outlet property="inputField" destination="53R-cu-fAd" id="uA7-l1-wP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QfL-Op-vt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3816.8000000000002" y="117.39130434782609"/>
+        </scene>
         <!--Add Topic-->
         <scene sceneID="efL-5y-NuF">
             <objects>
-                <viewController id="HeC-WO-tbw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OXV-bs-LZe" customClass="AddTopicView" customModule="Rush00" customModuleProvider="target">
+                <viewController id="HeC-WO-tbw" customClass="AddTopicViewController" customModule="Rush00" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OXV-bs-LZe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hj9-VT-g0X">
                                 <rect key="frame" x="-0.5" y="32" width="375" height="667"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Topic Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGV-ko-UMZ">
+                                        <rect key="frame" x="5.5" y="42" width="365" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8An-yQ-5um">
+                                        <rect key="frame" x="5.5" y="87" width="365" height="301.5"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8An-yQ-5um" firstAttribute="top" secondItem="LGV-ko-UMZ" secondAttribute="bottom" constant="15" id="PIp-F5-4FD"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8An-yQ-5um" firstAttribute="leading" secondItem="M0Q-Hk-rB6" secondAttribute="leading" constant="5" id="7Lf-pd-Qfe"/>
                             <constraint firstItem="Hj9-VT-g0X" firstAttribute="width" secondItem="OXV-bs-LZe" secondAttribute="width" id="BJx-cf-vcO"/>
                             <constraint firstItem="Hj9-VT-g0X" firstAttribute="centerY" secondItem="M0Q-Hk-rB6" secondAttribute="centerY" id="HvR-FE-rXn"/>
+                            <constraint firstItem="M0Q-Hk-rB6" firstAttribute="trailing" secondItem="LGV-ko-UMZ" secondAttribute="trailing" constant="5" id="J2v-Kl-7dW"/>
+                            <constraint firstItem="8An-yQ-5um" firstAttribute="height" secondItem="M0Q-Hk-rB6" secondAttribute="height" multiplier="0.5" id="Lzo-7G-sWx"/>
+                            <constraint firstItem="LGV-ko-UMZ" firstAttribute="leading" secondItem="M0Q-Hk-rB6" secondAttribute="leading" constant="5" id="jQV-By-ezv"/>
+                            <constraint firstItem="LGV-ko-UMZ" firstAttribute="top" secondItem="M0Q-Hk-rB6" secondAttribute="top" constant="10" id="lgc-8n-XLh"/>
                             <constraint firstItem="Hj9-VT-g0X" firstAttribute="height" secondItem="OXV-bs-LZe" secondAttribute="height" id="nnH-7c-1as"/>
                             <constraint firstItem="Hj9-VT-g0X" firstAttribute="centerX" secondItem="M0Q-Hk-rB6" secondAttribute="centerX" id="uvv-Zt-mK1"/>
+                            <constraint firstItem="M0Q-Hk-rB6" firstAttribute="trailing" secondItem="8An-yQ-5um" secondAttribute="trailing" constant="5" id="yMj-dG-6Vu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M0Q-Hk-rB6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Topic" id="hKB-OU-xno" userLabel="Add Topic">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="tFD-h5-euI"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Topic" id="hKB-OU-xno" userLabel="Add Topic"/>
+                    <connections>
+                        <outlet property="textView" destination="8An-yQ-5um" id="9wc-vb-8Zh"/>
+                        <outlet property="topicName" destination="LGV-ko-UMZ" id="50G-wi-V4o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gT8-vg-arU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,4 +374,7 @@
             <point key="canvasLocation" x="-1142" y="118"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Gqm-lL-Nbv"/>
+    </inferredMetricsTieBreakers>
 </document>
