@@ -14,7 +14,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     let locationMgr = CLLocationManager()
-
     
     @IBAction func locate(_ sender: UIButton) {
         print("I'm being pressed")
@@ -58,11 +57,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         mapView.showsUserLocation = true;
         let initialLocation = CLLocation(latitude: 48.8965523, longitude: 2.3162668)
         centerMapOnLocation(location: initialLocation)
-        
-        let pin = Pin(title: "42",
-                      locationName: "Ecole 42",
-                      coordinate: CLLocationCoordinate2D(latitude: 48.8965523, longitude: 2.3162668))
-        mapView.addAnnotation(pin)
+        self.addPins()
+//        mapView.register(PinMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
 //    Center map on lauch
@@ -78,6 +74,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func addPins() {
+        for pin in addresses {
+            mapView.addAnnotation(pin)
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentLocation = locations.last!
         print("Current location: \(currentLocation)")
@@ -90,24 +92,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 extension UIViewController: MKMapViewDelegate {
-    // 1
+
     public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        // 2
         guard let annotation = annotation as? Pin else { return nil }
-        // 3
         let identifier = "marker"
         var view: MKMarkerAnnotationView
-        // 4
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             as? MKMarkerAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
-            // 5
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            view.markerTintColor = annotation.color
         }
         return view
     }
