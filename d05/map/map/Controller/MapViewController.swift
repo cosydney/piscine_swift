@@ -39,7 +39,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationMgr.startUpdatingLocation()
         
         self.centerMapOnLocation(location: locationMgr.location!)
-        
     }
     
     @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {

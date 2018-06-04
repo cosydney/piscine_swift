@@ -33,10 +33,13 @@
                                     <action selector="segmentedControlAction:" destination="9pv-A4-QxB" eventType="valueChanged" id="HUd-Qg-q45"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1t-Ka-8ig">
-                                <rect key="frame" x="300" y="554" width="72" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1t-Ka-8ig">
+                                <rect key="frame" x="324" y="557" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Locate Me"/>
+                                <state key="normal" image="locate">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="locate:" destination="9pv-A4-QxB" eventType="touchUpInside" id="lG4-88-aDO"/>
                                 </connections>
@@ -149,5 +152,6 @@
     <resources>
         <image name="address" width="25" height="25"/>
         <image name="list" width="25" height="25"/>
+        <image name="locate" width="25" height="25"/>
     </resources>
 </document>
