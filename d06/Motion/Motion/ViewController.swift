@@ -65,6 +65,9 @@ class ViewController: UIViewController {
         collision.addItem(myView)
         itemBehaviour.addItem(myView)
         
+        let rotate = UIRotationGestureRecognizer(target: self, action:#selector(self.handleRotate(rotate:)))
+        myView.addGestureRecognizer(rotate)
+        
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.panGesture(gesture:)))
         myView.addGestureRecognizer(gesture)
         
@@ -73,15 +76,34 @@ class ViewController: UIViewController {
         
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(recognizer:)))
         myView.addGestureRecognizer(pinch)
-        
-        let rotate = UIRotationGestureRecognizer(target: self, action:#selector(self.handleRotate(rotate:)))
-        myView.addGestureRecognizer(rotate)
+
+    }
+    
+    @objc func handleRotate(rotate: UIRotationGestureRecognizer){
+        if let subview = rotate.view {
+            switch rotate.state {
+            case .began:
+                view.bringSubview(toFront: subview)
+                self.gravity.removeItem(subview)
+            case .changed:
+                collision.removeItem(subview)
+                itemBehaviour.removeItem(subview)
+                
+                subview.transform = view.transform.rotated(by: rotate.rotation)
+                animator.updateItem(usingCurrentState: rotate.view!)
+                
+                itemBehaviour.addItem(subview)
+                collision.addItem(subview)
+            case .ended:
+                self.gravity.addItem(rotate.view!)
+            default:
+                break
+            }
+        }
     }
     
     @objc func handlePinch(recognizer : UIPinchGestureRecognizer) {
         if let view = recognizer.view {
-            print(recognizer.scale)
-            
             switch recognizer.state {
             case .began:
                 self.gravity.removeItem(view)
@@ -100,20 +122,6 @@ class ViewController: UIViewController {
             default:
                 break
             }
-        }
-    }
-    
-    @objc func handleRotate(rotate: UIRotationGestureRecognizer){
-        switch rotate.state {
-        case .began:
-            self.gravity.removeItem(rotate.view!)
-        case .changed:
-            rotate.view?.transform = view.transform.rotated(by: rotate.rotation)
-            animator.updateItem(usingCurrentState: rotate.view!)
-        case .ended:
-            self.gravity.addItem(rotate.view!)
-        default:
-            break
         }
     }
     
