@@ -61,9 +61,8 @@ class Shape: UIView {
     override var collisionBoundsType: UIDynamicItemCollisionBoundsType {
         return .path
     }
-    
+
     override var collisionBoundingPath: UIBezierPath {
-        
         if self.isCircle {
             let radius = min(bounds.size.width, bounds.size.height) / 2.0
             return UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: 0, endAngle: CGFloat(Double.pi * 2.0), clockwise: true)

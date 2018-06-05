@@ -110,11 +110,15 @@ class ViewController: UIViewController {
                 self.collision.removeItem(view)
                 self.itemBehaviour.removeItem(view)
             case.changed:
-                recognizer.view?.layer.bounds.size.height *= recognizer.scale
-                recognizer.view?.layer.bounds.size.width *= recognizer.scale
-                if let tmp = recognizer.view! as? Shape {
-                    if (tmp.isCircle) {recognizer.view!.layer.cornerRadius *= recognizer.scale}}
-                recognizer.scale = 1
+                print("scale", recognizer.view?.layer.bounds.size.height)
+                var heights = recognizer.view?.layer.bounds.size.height
+                if (heights! <= 300 || recognizer.scale < 1) {
+                    recognizer.view?.layer.bounds.size.height *= recognizer.scale
+                    recognizer.view?.layer.bounds.size.width *= recognizer.scale
+                    if let tmp = recognizer.view! as? Shape {
+                        if (tmp.isCircle) {recognizer.view!.layer.cornerRadius *= recognizer.scale}}
+                    recognizer.scale = 1
+                                    }
             case .ended:
                 self.gravity.addItem(view)
                 self.collision.addItem(view)
