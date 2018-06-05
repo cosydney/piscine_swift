@@ -79,36 +79,26 @@ class ViewController: UIViewController {
     }
     
     @objc func handlePinch(recognizer : UIPinchGestureRecognizer) {
-        print("handlePinch")
         if let view = recognizer.view {
             print(recognizer.scale)
             
             switch recognizer.state {
             case .began:
-                print("PBegan")
                 self.gravity.removeItem(view)
                 self.collision.removeItem(view)
                 self.itemBehaviour.removeItem(view)
-                
             case.changed:
-                print("PChanged")
                 recognizer.view?.layer.bounds.size.height *= recognizer.scale
                 recognizer.view?.layer.bounds.size.width *= recognizer.scale
                 if let tmp = recognizer.view! as? Shape {
                     if (tmp.isCircle) {recognizer.view!.layer.cornerRadius *= recognizer.scale}}
                 recognizer.scale = 1
-                
             case .ended:
-                print("PEnded")
                 self.gravity.addItem(view)
                 self.collision.addItem(view)
                 self.itemBehaviour.addItem(view)
-                
-                
-            case .failed, .cancelled:
-                print("P F or C")
-            case .possible:
-                print("PPossible")
+            default:
+                break
             }
         }
     }
@@ -122,8 +112,6 @@ class ViewController: UIViewController {
             animator.updateItem(usingCurrentState: rotate.view!)
         case .ended:
             self.gravity.addItem(rotate.view!)
-        case .failed, .cancelled:
-            print("RF or C")
         default:
             break
         }
@@ -132,10 +120,7 @@ class ViewController: UIViewController {
     @objc func handleLongPress(press: UILongPressGestureRecognizer) {
         switch press.state {
         case .ended:
-            print("ended")
             press.view?.backgroundColor = generateRandomColor()
-        case .failed, .cancelled:
-            print("F or C")
         default:
             break
         }
@@ -144,19 +129,14 @@ class ViewController: UIViewController {
     @objc func panGesture(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .began:
-            print("Began")
             self.gravity.removeItem(gesture.view!)
         case .changed:
-            print("Change to \(gesture.location(in: view))")
             gesture.view?.center = gesture.location(in: gesture.view?.superview)
             animator.updateItem(usingCurrentState: gesture.view!)
         case .ended:
-            print("Ended")
             self.gravity.addItem(gesture.view!)
-        case .failed, .cancelled:
-            print("F or C")
-        case .possible:
-            print("Possible")
+        default:
+            break
         }
     }
 }
