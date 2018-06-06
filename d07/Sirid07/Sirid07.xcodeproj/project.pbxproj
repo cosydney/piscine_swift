@@ -12,6 +12,7 @@
 		25BEBE6B20C7B8BC00EA1F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BEBE6920C7B8BC00EA1F41 /* Main.storyboard */; };
 		25BEBE6D20C7B8BC00EA1F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25BEBE6C20C7B8BC00EA1F41 /* Assets.xcassets */; };
 		25BEBE7020C7B8BC00EA1F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BEBE6E20C7B8BC00EA1F41 /* LaunchScreen.storyboard */; };
+		8AE0EE7C46A65A8ECBB715CC /* Pods_Sirid07.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E935D96ECDE51EF22114C7 /* Pods_Sirid07.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		25BEBE6C20C7B8BC00EA1F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25BEBE6F20C7B8BC00EA1F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25BEBE7120C7B8BC00EA1F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		435ADD5B17C7E80EA5345C87 /* Pods-Sirid07.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sirid07.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sirid07/Pods-Sirid07.release.xcconfig"; sourceTree = "<group>"; };
+		A4E935D96ECDE51EF22114C7 /* Pods_Sirid07.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sirid07.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4D9913E1D1E02A17E519372 /* Pods-Sirid07.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sirid07.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sirid07/Pods-Sirid07.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE0EE7C46A65A8ECBB715CC /* Pods_Sirid07.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14DB14007234D5E992E1EE6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4E935D96ECDE51EF22114C7 /* Pods_Sirid07.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		25BEBE5920C7B8BB00EA1F41 = {
 			isa = PBXGroup;
 			children = (
 				25BEBE6420C7B8BC00EA1F41 /* Sirid07 */,
 				25BEBE6320C7B8BC00EA1F41 /* Products */,
+				82F1F8AA69D2CC57ED3470E2 /* Pods */,
+				14DB14007234D5E992E1EE6B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = Sirid07;
 			sourceTree = "<group>";
 		};
+		82F1F8AA69D2CC57ED3470E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4D9913E1D1E02A17E519372 /* Pods-Sirid07.debug.xcconfig */,
+				435ADD5B17C7E80EA5345C87 /* Pods-Sirid07.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25BEBE7420C7B8BC00EA1F41 /* Build configuration list for PBXNativeTarget "Sirid07" */;
 			buildPhases = (
+				75496B5283B520B67A16A201 /* [CP] Check Pods Manifest.lock */,
 				25BEBE5E20C7B8BC00EA1F41 /* Sources */,
 				25BEBE5F20C7B8BC00EA1F41 /* Frameworks */,
 				25BEBE6020C7B8BC00EA1F41 /* Resources */,
+				D98E206D3359D21B0D877E5D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,6 +156,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		75496B5283B520B67A16A201 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sirid07-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D98E206D3359D21B0D877E5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sirid07/Pods-Sirid07-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ForecastIO/ForecastIO.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RecastAI/RecastAI.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ForecastIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RecastAI.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sirid07/Pods-Sirid07-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		25BEBE5E20C7B8BC00EA1F41 /* Sources */ = {
@@ -272,6 +343,7 @@
 		};
 		25BEBE7520C7B8BC00EA1F41 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4D9913E1D1E02A17E519372 /* Pods-Sirid07.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +359,7 @@
 		};
 		25BEBE7620C7B8BC00EA1F41 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 435ADD5B17C7E80EA5345C87 /* Pods-Sirid07.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
