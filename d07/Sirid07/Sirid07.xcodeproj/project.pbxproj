@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2551C4F320C7F97B00ED7710 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2551C4F220C7F97B00ED7710 /* MessageViewController.swift */; };
 		25BEBE6620C7B8BC00EA1F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEBE6520C7B8BC00EA1F41 /* AppDelegate.swift */; };
 		25BEBE6820C7B8BC00EA1F41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BEBE6720C7B8BC00EA1F41 /* ViewController.swift */; };
 		25BEBE6B20C7B8BC00EA1F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BEBE6920C7B8BC00EA1F41 /* Main.storyboard */; };
-		25BEBE6D20C7B8BC00EA1F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25BEBE6C20C7B8BC00EA1F41 /* Assets.xcassets */; };
 		25BEBE7020C7B8BC00EA1F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BEBE6E20C7B8BC00EA1F41 /* LaunchScreen.storyboard */; };
 		8AE0EE7C46A65A8ECBB715CC /* Pods_Sirid07.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E935D96ECDE51EF22114C7 /* Pods_Sirid07.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2551C4F220C7F97B00ED7710 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		25BEBE6220C7B8BC00EA1F41 /* Sirid07.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sirid07.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25BEBE6520C7B8BC00EA1F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25BEBE6720C7B8BC00EA1F41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		25BEBE6A20C7B8BC00EA1F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		25BEBE6C20C7B8BC00EA1F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25BEBE6F20C7B8BC00EA1F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25BEBE7120C7B8BC00EA1F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		435ADD5B17C7E80EA5345C87 /* Pods-Sirid07.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sirid07.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sirid07/Pods-Sirid07.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,9 +72,9 @@
 				25BEBE6520C7B8BC00EA1F41 /* AppDelegate.swift */,
 				25BEBE6720C7B8BC00EA1F41 /* ViewController.swift */,
 				25BEBE6920C7B8BC00EA1F41 /* Main.storyboard */,
-				25BEBE6C20C7B8BC00EA1F41 /* Assets.xcassets */,
 				25BEBE6E20C7B8BC00EA1F41 /* LaunchScreen.storyboard */,
 				25BEBE7120C7B8BC00EA1F41 /* Info.plist */,
+				2551C4F220C7F97B00ED7710 /* MessageViewController.swift */,
 			);
 			path = Sirid07;
 			sourceTree = "<group>";
@@ -150,7 +150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				25BEBE7020C7B8BC00EA1F41 /* LaunchScreen.storyboard in Resources */,
-				25BEBE6D20C7B8BC00EA1F41 /* Assets.xcassets in Resources */,
 				25BEBE6B20C7B8BC00EA1F41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,16 +183,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sirid07/Pods-Sirid07-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Chatto/Chatto.framework",
 				"${BUILT_PRODUCTS_DIR}/ForecastIO/ForecastIO.framework",
-				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/RecastAI/RecastAI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Chatto.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ForecastIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RecastAI.framework",
 			);
@@ -210,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25BEBE6820C7B8BC00EA1F41 /* ViewController.swift in Sources */,
+				2551C4F320C7F97B00ED7710 /* MessageViewController.swift in Sources */,
 				25BEBE6620C7B8BC00EA1F41 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

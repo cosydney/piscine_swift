@@ -14,6 +14,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var response: UILabel!
     @IBOutlet weak var textField: UITextField!
+    @IBAction func goToMsg(_ sender: UIButton) {
+        performSegue(withIdentifier: "messageSegue", sender: nil)
+    }
     @IBAction func makeRequestButton(_ sender: UIButton) {
       self.performAction()
     }

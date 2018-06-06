@@ -1,32 +1,32 @@
 PODS:
   - Alamofire (4.7.2)
+  - Chatto (3.3.1)
   - ForecastIO (5.0.0)
-  - MessageKit (0.13.5)
   - ObjectMapper (3.2.0)
   - RecastAI (3.5.0):
     - Alamofire
     - ObjectMapper
 
 DEPENDENCIES:
+  - Chatto
   - ForecastIO
-  - MessageKit
   - RecastAI
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Chatto
     - ForecastIO
-    - MessageKit
     - ObjectMapper
     - RecastAI
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Chatto: 24a6c9b0c91b08130466888b8b61563b90191c6f
   ForecastIO: 013d0110a0977712624973ceb425da1936b02acf
-  MessageKit: c4bd50e285a0f0761bc23a2e982aa7840873c4f5
   ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
   RecastAI: d9abaf97f914a07cc10ee0cb8be89bfe2b942280
 
-PODFILE CHECKSUM: 029d2b8cad42c4d6005a41bbf22651a230c9c73d
+PODFILE CHECKSUM: 472eab4075460fb6f274ed668f5c9dbbffd61b01
 
 COCOAPODS: 1.5.3
