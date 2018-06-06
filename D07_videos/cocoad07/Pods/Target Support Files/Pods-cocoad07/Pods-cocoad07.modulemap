@@ -1,0 +1,6 @@
+framework module Pods_cocoad07 {
+  umbrella header "Pods-cocoad07-umbrella.h"
+
+  export *
+  module * { export * }
+}

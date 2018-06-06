@@ -1,0 +1,16 @@
+PODS:
+  - ForecastIO (5.0.0)
+
+DEPENDENCIES:
+  - ForecastIO
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ForecastIO
+
+SPEC CHECKSUMS:
+  ForecastIO: 013d0110a0977712624973ceb425da1936b02acf
+
+PODFILE CHECKSUM: 9e578916a3415cfce97fe7ea774d3bd8b463070c
+
+COCOAPODS: 1.5.3
