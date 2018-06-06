@@ -10,7 +10,6 @@ import UIKit
 import RecastAI
 import ForecastIO
 
-
 class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var response: UILabel!
@@ -25,34 +24,42 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.textField.delegate = self
         self.bot = RecastAIClient(token : "ab4e43dca4143e9b24c2e76d99fc1cf1", language: "en")
-        client.language = .english
-        
+        client.language = .french
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder() 
+        textField.resignFirstResponder()
         self.performAction()
         return true
     }
     
     func performAction() {
         print (textField.text as Any)
-        if (textField.text != nil) {
+        if (textField.text != nil && textField.text != "") {
             self.makeRequest(request: textField.text!)
         }
     }
     
     func makeRequest(request: String)
     {
-        //Call makeRequest with string parameter to make a text request
-        self.bot?.textRequest(request, successHandler: { (response) in
+            self.bot?.textRequest(request, successHandler: { (response) in
 //            print("response", response)
 //            print("intent", response.intents as Any)
             let location = response.get(entity: "location")
-            let lat = location!["lat"]?.doubleValue
-            let lng = location!["lng"]?.doubleValue
-            print("lat", lat as Any, "lng", lng as Any)
-            self.makeWeatherRequest(lat: lat!, lng: lng!)
+                print("location", location)
+            if (location != nil) {
+                let lat = location!["lat"]?.doubleValue
+                let lng = location!["lng"]?.doubleValue
+                print("lat", lat as Any, "lng", lng as Any)
+                if (lat != nil) {
+                    self.makeWeatherRequest(lat: lat!, lng: lng!)
+                } else {
+                    self.response.text = "Error with Recast API try again"
+                }
+            } else {
+                self.response.text = "Enter a valid city"
+            }
+            
         }, failureHandle: { (error) in
             print("error", error)
             self.response.text = "Error with Recast call"
@@ -62,28 +69,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func makeWeatherRequest(lat: Double, lng: Double) {
         client.getForecast(latitude: lat, longitude: lng) { result in
         switch result {
-        case .success(let currentForecast, let _):
+        case .success(let currentForecast, _):
             let summary = currentForecast.currently?.summary
             print("summary", summary as Any)
             DispatchQueue.main.async {
                 self.response.text = summary
             }
-            //  We got the current forecast!
             case .failure(let error):
                 print("error", error)
             DispatchQueue.main.async {
                     self.response.text = "Error with Weather API"
             }
-            //  Uh-oh. We have an error!
             }
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
