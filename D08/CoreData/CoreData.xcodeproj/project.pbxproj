@@ -13,6 +13,8 @@
 		256C5B4620C834A700C5E89B /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 256C5B4420C834A700C5E89B /* CoreData.xcdatamodeld */; };
 		256C5B4820C834A700C5E89B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256C5B4720C834A700C5E89B /* Assets.xcassets */; };
 		256C5B4B20C834A700C5E89B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256C5B4920C834A700C5E89B /* LaunchScreen.storyboard */; };
+		256C5B5420C8352F00C5E89B /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C5B5220C8352F00C5E89B /* Person+CoreDataClass.swift */; };
+		256C5B5520C8352F00C5E89B /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256C5B5320C8352F00C5E89B /* Person+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		256C5B4720C834A700C5E89B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		256C5B4A20C834A700C5E89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		256C5B4C20C834A700C5E89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		256C5B5220C8352F00C5E89B /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		256C5B5320C8352F00C5E89B /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 		256C5B3120C834A700C5E89B = {
 			isa = PBXGroup;
 			children = (
+				256C5B5220C8352F00C5E89B /* Person+CoreDataClass.swift */,
+				256C5B5320C8352F00C5E89B /* Person+CoreDataProperties.swift */,
 				256C5B3C20C834A700C5E89B /* CoreData */,
 				256C5B3B20C834A700C5E89B /* Products */,
 			);
@@ -139,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				256C5B5420C8352F00C5E89B /* Person+CoreDataClass.swift in Sources */,
+				256C5B5520C8352F00C5E89B /* Person+CoreDataProperties.swift in Sources */,
 				256C5B4020C834A700C5E89B /* ViewController.swift in Sources */,
 				256C5B3E20C834A700C5E89B /* AppDelegate.swift in Sources */,
 				256C5B4620C834A700C5E89B /* CoreData.xcdatamodeld in Sources */,

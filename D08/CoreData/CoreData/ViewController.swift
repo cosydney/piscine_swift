@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let context = (UIApplication.sharedApplication.delegate as! AppDelegate).managedObjectContext
+        
+        var person : Person!
+        contest.performBlockAndWait
+            {
+                let en = NSEntityDescription
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
