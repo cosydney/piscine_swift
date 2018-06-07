@@ -8,6 +8,6 @@ target 'Sirid07' do
   # Pods for Sirid07
   pod "ForecastIO"
   pod "RecastAI"
-  pod "Chatto"
+  pod "MessageKit"
 
 end

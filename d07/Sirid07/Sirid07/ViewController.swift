@@ -46,8 +46,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func makeRequest(request: String)
     {
             self.bot?.textRequest(request, successHandler: { (response) in
-//            print("response", response)
-//            print("intent", response.intents as Any)
             let location = response.get(entity: "location")
                 print("location", location)
             if (location != nil) {
