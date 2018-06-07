@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  CoreData
 //
-//  Created by Sydney COHEN on 6/7/18.
+//  Created by Sydney COHEN on 6/6/18.
 //  Copyright © 2018 Sydney COHEN. All rights reserved.
 //
 
