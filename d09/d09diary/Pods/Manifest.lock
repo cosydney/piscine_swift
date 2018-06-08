@@ -1,0 +1,16 @@
+PODS:
+  - sycohen2018 (0.1.0)
+
+DEPENDENCIES:
+  - sycohen2018 (from `/Users/sycohen/code/SWIFT42/d08_clone/sycohen2018`)
+
+EXTERNAL SOURCES:
+  sycohen2018:
+    :path: "/Users/sycohen/code/SWIFT42/d08_clone/sycohen2018"
+
+SPEC CHECKSUMS:
+  sycohen2018: 02c7d0b478e10f4b3a7e352cab2bdb24c7c13b37
+
+PODFILE CHECKSUM: 739984bbe168dbd0606e455c96f6c44f0754739d
+
+COCOAPODS: 1.5.3

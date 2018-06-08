@@ -1,0 +1,24 @@
+{
+  "name": "sycohen2018",
+  "version": "0.1.0",
+  "summary": "d08 piscine sycohen2018.",
+  "swift_version": "4.0",
+  "description": "d08 piscine swift Sydney",
+  "homepage": "https://github.com/cosydney/sycohen2018",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "cosydney": "chnsydney@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/cosydney/sycohen2018.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "sycohen2018/Classes/**/*.{swift}",
+  "resources": "sycohen2018/Classes/**/*.xcdatamodeld"
+}
