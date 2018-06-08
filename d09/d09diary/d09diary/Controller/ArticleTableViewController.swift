@@ -21,8 +21,8 @@ class ArticleTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 200
         langue = Locale.current.languageCode!
         let articleManager = ArticleManager()
-//
-//
+
+
 //        let deuse = articleManager.newArticle()
 //        deuse.titre = "Article 2"
 //        deuse.content = "Mon deuxieme article apres le premier article in English language"
@@ -31,8 +31,8 @@ class ArticleTableViewController: UITableViewController {
 //        deuse.langue = "en"
 //        articleManager.save()
 //
+//        print("LANGUE", langue)
 
-        articles = articleManager.getArticles(withLang: NSLocale.current.identifier)
 //        let prems = articleManager.newArticle()
 //        prems.titre = "Article 1"
 //        prems.content = "Mon premier article du d08 trololo"
@@ -40,14 +40,14 @@ class ArticleTableViewController: UITableViewController {
 //        prems.modificationDate = NSDate()
 //        prems.langue = "fr"
 //        articleManager.save()
-//
+//        print(articleManager.getAllArticles())
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        articles = articleManager.getArticles(withLang: langue)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,11 +75,13 @@ class ArticleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleTableViewCell
         
+        if (articles?[indexPath.row] != nil) {
         cell.titre.text = articles![indexPath.row].titre
         cell.creationDate.text = format_date(date: articles![indexPath.row].creationDate!)
 //        cell.photo.image = (articles![indexPath.row].image != nil) ? UIImage(data: articles[indexPath.row].image!) : nil
         cell.modificationDate.text = format_date(date: articles![indexPath.row].modificationDate!)
         cell.descriptionLabel.text = articles![indexPath.row].content
+        }
         
         return cell
     }

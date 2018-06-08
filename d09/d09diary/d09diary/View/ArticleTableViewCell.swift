@@ -10,10 +10,10 @@ import UIKit
 
 class ArticleTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var creationDate: UILabel!
+    @IBOutlet weak var modificationDate: UILabel!
     @IBOutlet weak var titre: UILabel!
     @IBOutlet weak var photo: UIImageView!
-    @IBOutlet weak var creationDate: UITextField!
-    @IBOutlet weak var modificationDate: UITextField!
     @IBOutlet weak var descriptionLabel: UITextView!
     
     
