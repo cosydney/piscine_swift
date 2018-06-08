@@ -14,6 +14,10 @@ class ArticleTableViewController: UITableViewController {
     var articles: [Article]?
     var langue: String = "en"
     
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "addSegue", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("controller did load")
@@ -78,9 +82,11 @@ class ArticleTableViewController: UITableViewController {
         if (articles?[indexPath.row] != nil) {
         cell.titre.text = articles![indexPath.row].titre
         cell.creationDate.text = format_date(date: articles![indexPath.row].creationDate!)
-//        cell.photo.image = (articles![indexPath.row].image != nil) ? UIImage(data: articles[indexPath.row].image!) : nil
+            cell.photo.image = (articles![indexPath.row].image != nil) ? UIImage(data: articles![indexPath.row].image! as Data) : nil
         cell.modificationDate.text = format_date(date: articles![indexPath.row].modificationDate!)
         cell.descriptionLabel.text = articles![indexPath.row].content
+            
+            
         }
         
         return cell

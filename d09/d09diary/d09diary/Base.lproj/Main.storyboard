@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SYE-44-zNS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x2i-by-22x">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -128,11 +128,51 @@
                             <outlet property="delegate" destination="SYE-44-zNS" id="yVn-td-3uW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Diary" id="eBb-1V-MIO"/>
+                    <navigationItem key="navigationItem" title="Diary" id="eBb-1V-MIO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="S5z-eI-ozA">
+                            <connections>
+                                <action selector="addButton:" destination="SYE-44-zNS" id="qzq-1H-aB6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="8oV-YG-8WV" kind="show" identifier="addSegue" id="Owf-03-tav"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Xl-lr-1kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1440.8" y="133.5832083958021"/>
+        </scene>
+        <!--Add an entry-->
+        <scene sceneID="biw-nj-q8d">
+            <objects>
+                <viewController id="8oV-YG-8WV" customClass="AddViewController" customModule="d09diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Beg-2C-b89">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhC-k5-2TS">
+                                <rect key="frame" x="166" y="323" width="30" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Gaw-bd-hHn"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add an entry" id="Mcc-71-1W3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="3Be-M1-p4D">
+                            <connections>
+                                <action selector="doneButton:" destination="8oV-YG-8WV" id="qrJ-lh-acs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sr1-1Q-khS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2268" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xQJ-uh-N7k">
