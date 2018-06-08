@@ -1,0 +1,6 @@
+framework module sycohen2018 {
+  umbrella header "sycohen2018-umbrella.h"
+
+  export *
+  module * { export * }
+}

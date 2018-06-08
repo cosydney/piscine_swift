@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'sycohen2018_Example' do
+  pod 'sycohen2018', :path => '../'
+
+  target 'sycohen2018_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

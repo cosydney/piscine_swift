@@ -1,0 +1,16 @@
+PODS:
+  - sycohen2018 (0.1.0)
+
+DEPENDENCIES:
+  - sycohen2018 (from `../`)
+
+EXTERNAL SOURCES:
+  sycohen2018:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  sycohen2018: 20fe8861996e577ad3460164016ff44e473d0d5c
+
+PODFILE CHECKSUM: 7d41422c9301d6d0dd9f31e5fedf952ee7667745
+
+COCOAPODS: 1.5.3

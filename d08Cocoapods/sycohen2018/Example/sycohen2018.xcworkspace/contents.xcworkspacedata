@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "absolute:/Users/sycohen/code/piscine_swift/d08/sycohen2018/Example/Article+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "absolute:/Users/sycohen/code/piscine_swift/d08/sycohen2018/Example/Article+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/sycohen/code/piscine_swift/d08/sycohen2018/Example/sycohen2018.xcdatamodeld">
+   </FileRef>
+   <FileRef
+      location = "group:sycohen2018.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
