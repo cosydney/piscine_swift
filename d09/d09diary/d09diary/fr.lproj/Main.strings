@@ -1,0 +1,36 @@
+/* Class = "UIButton"; normalTitle = "Pick Image"; ObjectID = "9TN-w8-fUa"; */
+"9TN-w8-fUa.normalTitle" = "Pick Image";
+
+/* Class = "UILabel"; text = "Date de modification"; ObjectID = "C1O-lF-G29"; */
+"C1O-lF-G29.text" = "Date de modification";
+
+/* Class = "UITextView"; text = "Placeholder"; ObjectID = "Ccn-qF-55i"; */
+"Ccn-qF-55i.text" = "Text de mise en place";
+
+/* Class = "UILabel"; text = "Title:"; ObjectID = "Dja-6e-bcH"; */
+"Dja-6e-bcH.text" = "Titre:";
+
+/* Class = "UILabel"; text = "Content:"; ObjectID = "HOL-C1-r2R"; */
+"HOL-C1-r2R.text" = "Contenu:";
+
+/* Class = "UINavigationItem"; title = "Add an entry"; ObjectID = "Mcc-71-1W3"; */
+"Mcc-71-1W3.title" = "Ajouter une entre";
+
+/* Class = "UILabel"; text = "Date de creation"; ObjectID = "Sty-0y-gu0"; */
+"Sty-0y-gu0.text" = "Date de creation";
+
+/* Class = "UILabel"; text = "Titre"; ObjectID = "Yj1-8M-MSa"; */
+"Yj1-8M-MSa.text" = "Titre";
+
+/* Class = "UIButton"; normalTitle = "Take photo"; ObjectID = "dQZ-fd-Ogj"; */
+"dQZ-fd-Ogj.normalTitle" = "Prendre une photo";
+
+/* Class = "UINavigationItem"; title = "Diary"; ObjectID = "eBb-1V-MIO"; */
+"eBb-1V-MIO.title" = "Journal de bord";
+
+/* Class = "UIButton"; normalTitle = "Login With TouchID"; ObjectID = "t7r-1b-2CL"; */
+"t7r-1b-2CL.normalTitle" = "Se logger avec TouchID";
+
+/* Class = "UITextField"; placeholder = "Add a title here"; ObjectID = "tTF-gm-5kO"; */
+"tTF-gm-5kO.placeholder" = "Ajouter un titre ici";
+

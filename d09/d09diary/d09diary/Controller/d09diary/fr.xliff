@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="d09diary/Base.lproj/LaunchScreen.storyboard" source-language="en" datatype="plaintext" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.2" build-num="9C40b"/>
+    </header>
+    <body/>
+  </file>
+  <file original="d09diary/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.2" build-num="9C40b"/>
+    </header>
+    <body>
+      <trans-unit id="9TN-w8-fUa.normalTitle">
+        <source>Pick Image</source>
+        <target>Pick Image</target>
+        <note>Class = "UIButton"; normalTitle = "Pick Image"; ObjectID = "9TN-w8-fUa";</note>
+      </trans-unit>
+      <trans-unit id="C1O-lF-G29.text">
+        <source>Date de modification</source>
+        <target>Date de modification</target>
+        <note>Class = "UILabel"; text = "Date de modification"; ObjectID = "C1O-lF-G29";</note>
+      </trans-unit>
+      <trans-unit id="Ccn-qF-55i.text">
+        <source>Placeholder</source>
+        <target>Placeholder</target>
+        <note>Class = "UITextView"; text = "Placeholder"; ObjectID = "Ccn-qF-55i";</note>
+      </trans-unit>
+      <trans-unit id="Dja-6e-bcH.text">
+        <source>Title:</source>
+        <target>Title:</target>
+        <note>Class = "UILabel"; text = "Title:"; ObjectID = "Dja-6e-bcH";</note>
+      </trans-unit>
+      <trans-unit id="HOL-C1-r2R.text">
+        <source>Content:</source>
+        <target>Content:</target>
+        <note>Class = "UILabel"; text = "Content:"; ObjectID = "HOL-C1-r2R";</note>
+      </trans-unit>
+      <trans-unit id="Mcc-71-1W3.title">
+        <source>Add an entry</source>
+        <target>Add an entry</target>
+        <note>Class = "UINavigationItem"; title = "Add an entry"; ObjectID = "Mcc-71-1W3";</note>
+      </trans-unit>
+      <trans-unit id="Sty-0y-gu0.text">
+        <source>Date de creation</source>
+        <target>Date de creation</target>
+        <note>Class = "UILabel"; text = "Date de creation"; ObjectID = "Sty-0y-gu0";</note>
+      </trans-unit>
+      <trans-unit id="Yj1-8M-MSa.text">
+        <source>Titre</source>
+        <target>Titre</target>
+        <note>Class = "UILabel"; text = "Titre"; ObjectID = "Yj1-8M-MSa";</note>
+      </trans-unit>
+      <trans-unit id="dQZ-fd-Ogj.normalTitle">
+        <source>Take photo</source>
+        <target>Take photo</target>
+        <note>Class = "UIButton"; normalTitle = "Take photo"; ObjectID = "dQZ-fd-Ogj";</note>
+      </trans-unit>
+      <trans-unit id="eBb-1V-MIO.title">
+        <source>Diary</source>
+        <target>Diary</target>
+        <note>Class = "UINavigationItem"; title = "Diary"; ObjectID = "eBb-1V-MIO";</note>
+      </trans-unit>
+      <trans-unit id="t7r-1b-2CL.normalTitle">
+        <source>Login With TouchID</source>
+        <target>Login With TouchID</target>
+        <note>Class = "UIButton"; normalTitle = "Login With TouchID"; ObjectID = "t7r-1b-2CL";</note>
+      </trans-unit>
+      <trans-unit id="tTF-gm-5kO.placeholder">
+        <source>Add a title here</source>
+        <target>Add a title here</target>
+        <note>Class = "UITextField"; placeholder = "Add a title here"; ObjectID = "tTF-gm-5kO";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="d09diary/Info.plist" source-language="en" datatype="plaintext" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.2" build-num="9C40b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="NSCameraUsageDescription">
+        <source>Need your cam bro</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="d09diary/Localizable.strings" source-language="en" datatype="plaintext" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.2" build-num="9C40b"/>
+    </header>
+    <body>
+      <trans-unit id="title">
+        <source>title</source>
+        <note>description of the content</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -21,7 +21,9 @@ class ArticleTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("controller did load")
+        
+        var title = NSLocalizedString("title", comment: "description of the content")
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 200
         langue = Locale.current.languageCode!
@@ -93,6 +95,10 @@ class ArticleTableViewController: UITableViewController {
         if (segue.identifier == "addSegue" && sender != nil) {
                 evc.edit = true
                 evc.article = sender as? Article
+                evc.articleManager = self.articleManager
+            }
+            if (segue.identifier == "addSegue") {
+                evc.articleManager = self.articleManager
             }
         }
     }

@@ -11,7 +11,8 @@ import sycohen2018
 
 class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let articleManager = ArticleManager()
+//    let articleManager = ArticleManager()
+    var articleManager: ArticleManager?
     var doneButton: UIBarButtonItem?
     let pickerController = UIImagePickerController()
     var edit: Bool = false
@@ -67,35 +68,26 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
     @objc func doneAction() {
+        let newarticle = articleManager!.newArticle()
         if (edit) {
-            print("do something here")
-            article?.titre = titreInput.text
-            article?.content = contentInput.text
-            article?.langue = Locale.current.languageCode!
-            article?.modificationDate = NSDate()
-            if imageView.image != nil {
-                if let imageData = UIImageJPEGRepresentation(imageView.image!, 1) {
-                    article?.image = imageData as NSData?
-                } else {
-                    print("saveArticle : error")
-                }
-            }
+            newarticle.creationDate = article?.creationDate
+            articleManager?.removeArticle(article: article!)
         } else {
-            let article = articleManager.newArticle()
-            article.titre = titreInput.text
-            article.content = contentInput.text
-            article.creationDate = NSDate()
-            article.langue = Locale.current.languageCode!
-            article.modificationDate = NSDate()
-            if imageView.image != nil {
-                if let imageData = UIImageJPEGRepresentation(imageView.image!, 1) {
-                    article.image = imageData as NSData?
-                } else {
-                    print("saveArticle : error")
-                }
+            newarticle.creationDate = NSDate()
+            newarticle.modificationDate = NSDate()
+        }
+        newarticle.titre = titreInput.text
+        newarticle.content = contentInput.text
+        if imageView.image != nil {
+            if let imageData = UIImageJPEGRepresentation(imageView.image!, 1) {
+                newarticle.image = imageData as NSData?
+            } else {
+                print("saveArticle : error")
             }
         }
-        articleManager.save()
+        newarticle.modificationDate = NSDate()
+        newarticle.langue = Locale.current.languageCode!
+        articleManager!.save()
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
         }
