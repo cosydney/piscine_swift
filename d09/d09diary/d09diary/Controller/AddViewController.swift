@@ -7,22 +7,53 @@
 //
 
 import UIKit
+import sycohen2018
 
 class AddViewController: UIViewController {
-
-    @IBAction func doneButton(_ sender: UIBarButtonItem) {
     
-    }
+    let articleManager = ArticleManager()
+    var doneButton: UIBarButtonItem?
+    
+    @IBOutlet weak var titreInput: UITextField!
+    @IBOutlet weak var contentInput: UITextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(doneAction))
+        navigationItem.rightBarButtonItem = doneButton
+        doneButton!.isEnabled = false
+        titreInput.addTarget(self, action: #selector(editingHasStarted), for: .editingChanged)
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func createArticle() {
+  
+        
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    @objc func editingHasStarted(){
+        if (titreInput.text != nil && titreInput.text != ""){
+            doneButton!.isEnabled = true
+        } else {
+            doneButton!.isEnabled = false
+        }
+    }
+    
+    @objc func doneAction() {
+        print("creating article")
+        let article = articleManager.newArticle()
+        article.titre = titreInput.text
+        article.content = contentInput.text
+        article.creationDate = NSDate()
+        article.langue = Locale.current.languageCode!
+        article.modificationDate = NSDate()
+        articleManager.save()
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
 
