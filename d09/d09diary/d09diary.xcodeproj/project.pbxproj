@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		179FC053C46339281759C428 /* Pods_d09diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD9043668121A7B20085775 /* Pods_d09diary.framework */; };
+		25179AB420CABA0200566E28 /* ArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25179AB320CABA0200566E28 /* ArticleTableViewController.swift */; };
 		25FAE09320CA6E54004D41A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FAE09220CA6E54004D41A7 /* AppDelegate.swift */; };
 		25FAE09520CA6E54004D41A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FAE09420CA6E54004D41A7 /* ViewController.swift */; };
 		25FAE09820CA6E54004D41A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FAE09620CA6E54004D41A7 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		03C6A34C7A58A6A4D24DDF64 /* Pods-d09diary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-d09diary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-d09diary/Pods-d09diary.debug.xcconfig"; sourceTree = "<group>"; };
+		25179AB320CABA0200566E28 /* ArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewController.swift; sourceTree = "<group>"; };
 		25FAE08F20CA6E54004D41A7 /* d09diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = d09diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25FAE09220CA6E54004D41A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25FAE09420CA6E54004D41A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25179AB520CABA0B00566E28 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				25FAE09420CA6E54004D41A7 /* ViewController.swift */,
+				25179AB320CABA0200566E28 /* ArticleTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		25FAE08620CA6E54004D41A7 = {
 			isa = PBXGroup;
 			children = (
@@ -61,8 +72,8 @@
 		25FAE09120CA6E54004D41A7 /* d09diary */ = {
 			isa = PBXGroup;
 			children = (
+				25179AB520CABA0B00566E28 /* Controller */,
 				25FAE09220CA6E54004D41A7 /* AppDelegate.swift */,
-				25FAE09420CA6E54004D41A7 /* ViewController.swift */,
 				25FAE09620CA6E54004D41A7 /* Main.storyboard */,
 				25FAE09920CA6E54004D41A7 /* Assets.xcassets */,
 				25FAE09B20CA6E54004D41A7 /* LaunchScreen.storyboard */,
@@ -202,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25FAE09520CA6E54004D41A7 /* ViewController.swift in Sources */,
+				25179AB420CABA0200566E28 /* ArticleTableViewController.swift in Sources */,
 				25FAE09320CA6E54004D41A7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
