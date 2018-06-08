@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
         </scene>
-        <!--Article Table View Controller-->
+        <!--Diary-->
         <scene sceneID="krC-NX-smn">
             <objects>
                 <tableViewController id="SYE-44-zNS" customClass="ArticleTableViewController" customModule="d09diary" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,8 +55,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="452.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yj1-8M-MSa">
-                                            <rect key="frame" x="166" y="11" width="35" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yj1-8M-MSa">
+                                            <rect key="frame" x="124" y="11" width="132" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="1fx-Vo-KMt"/>
+                                                <constraint firstAttribute="width" constant="132" id="pVZ-n8-XA5"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -65,7 +69,7 @@
                                             <rect key="frame" x="16" y="239" width="343" height="203"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="203" id="4H3-bY-Laf"/>
+                                                <constraint firstAttribute="height" constant="203" id="JbB-e1-zr3"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -83,23 +87,23 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xmf-s3-aAD">
-                                            <rect key="frame" x="67" y="55" width="240" height="128"/>
+                                            <rect key="frame" x="16" y="55" width="343" height="139"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="hSc-sr-9mU" firstAttribute="leading" secondItem="EiR-YU-lXf" secondAttribute="trailing" constant="67" id="CaY-Na-dqY"/>
-                                        <constraint firstItem="Yj1-8M-MSa" firstAttribute="top" secondItem="J4a-L3-dZv" secondAttribute="topMargin" id="T0A-tL-NZY"/>
-                                        <constraint firstItem="Xmf-s3-aAD" firstAttribute="top" secondItem="Yj1-8M-MSa" secondAttribute="bottom" constant="23" id="TyG-7A-7y9"/>
-                                        <constraint firstItem="Ccn-qF-55i" firstAttribute="trailing" secondItem="J4a-L3-dZv" secondAttribute="trailingMargin" id="YYY-xo-OcI"/>
-                                        <constraint firstItem="EiR-YU-lXf" firstAttribute="leading" secondItem="J4a-L3-dZv" secondAttribute="leadingMargin" id="aou-pe-edG"/>
-                                        <constraint firstItem="Ccn-qF-55i" firstAttribute="top" secondItem="EiR-YU-lXf" secondAttribute="bottom" constant="8" symbolic="YES" id="g8g-D7-Xrc"/>
-                                        <constraint firstItem="EiR-YU-lXf" firstAttribute="baseline" secondItem="hSc-sr-9mU" secondAttribute="baseline" id="hD6-Ab-5Uw"/>
-                                        <constraint firstItem="Xmf-s3-aAD" firstAttribute="centerX" secondItem="Ccn-qF-55i" secondAttribute="centerX" id="qpF-wq-PNk"/>
-                                        <constraint firstItem="Yj1-8M-MSa" firstAttribute="leading" secondItem="J4a-L3-dZv" secondAttribute="leading" constant="166" id="rGP-Lb-eq2"/>
-                                        <constraint firstItem="EiR-YU-lXf" firstAttribute="top" secondItem="Xmf-s3-aAD" secondAttribute="bottom" constant="18" id="sMf-2p-KWL"/>
-                                        <constraint firstItem="Ccn-qF-55i" firstAttribute="bottom" secondItem="J4a-L3-dZv" secondAttribute="bottomMargin" id="vpJ-mu-edp"/>
-                                        <constraint firstItem="EiR-YU-lXf" firstAttribute="leading" secondItem="Ccn-qF-55i" secondAttribute="leading" id="wpw-fO-FY2"/>
-                                        <constraint firstItem="Xmf-s3-aAD" firstAttribute="leading" secondItem="J4a-L3-dZv" secondAttribute="leadingMargin" constant="51" id="xsd-kn-ocf"/>
+                                        <constraint firstItem="Xmf-s3-aAD" firstAttribute="leading" secondItem="J4a-L3-dZv" secondAttribute="leadingMargin" id="37A-Cr-Kkr"/>
+                                        <constraint firstItem="hSc-sr-9mU" firstAttribute="leading" secondItem="EiR-YU-lXf" secondAttribute="trailing" constant="67" id="5RK-rt-yfV"/>
+                                        <constraint firstItem="Yj1-8M-MSa" firstAttribute="top" secondItem="J4a-L3-dZv" secondAttribute="topMargin" id="9qg-TY-Qd8"/>
+                                        <constraint firstItem="EiR-YU-lXf" firstAttribute="leading" secondItem="Ccn-qF-55i" secondAttribute="leading" id="CBI-YV-qvQ"/>
+                                        <constraint firstItem="EiR-YU-lXf" firstAttribute="top" secondItem="Xmf-s3-aAD" secondAttribute="bottom" constant="7" id="F73-fR-GjU"/>
+                                        <constraint firstItem="Ccn-qF-55i" firstAttribute="top" secondItem="EiR-YU-lXf" secondAttribute="bottom" constant="8" symbolic="YES" id="J7i-Zc-KkC"/>
+                                        <constraint firstItem="EiR-YU-lXf" firstAttribute="baseline" secondItem="hSc-sr-9mU" secondAttribute="baseline" id="JaM-KJ-d0k"/>
+                                        <constraint firstItem="Xmf-s3-aAD" firstAttribute="top" secondItem="Yj1-8M-MSa" secondAttribute="bottom" constant="20" id="KeO-UI-SDb"/>
+                                        <constraint firstItem="Ccn-qF-55i" firstAttribute="bottom" secondItem="J4a-L3-dZv" secondAttribute="bottomMargin" id="d8I-5M-PS5"/>
+                                        <constraint firstItem="Yj1-8M-MSa" firstAttribute="leading" secondItem="J4a-L3-dZv" secondAttribute="leading" constant="124" id="lbk-z3-kXs"/>
+                                        <constraint firstItem="Xmf-s3-aAD" firstAttribute="leading" secondItem="EiR-YU-lXf" secondAttribute="leading" id="oIn-AQ-QE2"/>
+                                        <constraint firstItem="Xmf-s3-aAD" firstAttribute="trailing" secondItem="J4a-L3-dZv" secondAttribute="trailingMargin" id="p50-sB-zzO"/>
+                                        <constraint firstItem="Xmf-s3-aAD" firstAttribute="trailing" secondItem="Ccn-qF-55i" secondAttribute="trailing" id="wRp-u8-Vnw"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -116,6 +120,7 @@
                             <outlet property="delegate" destination="SYE-44-zNS" id="yVn-td-3uW"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Diary" id="eBb-1V-MIO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Xl-lr-1kb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
