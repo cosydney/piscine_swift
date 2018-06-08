@@ -68,12 +68,8 @@ class ArticleTableViewController: UITableViewController {
         }
 
         cell.photo.image = (articles![indexPath.row].image != nil) ? UIImage(data: articles![indexPath.row].image! as Data) : nil
-
         cell.descriptionLabel.text = articles![indexPath.row].content
-            
-            
         }
-        
         return cell
     }
     
@@ -89,45 +85,38 @@ class ArticleTableViewController: UITableViewController {
         formatter.dateFormat = "dd-MMM-yyyy"
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
-        
         return (myStringafd)
     }
     
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let evc = segue.destination as? AddViewController {
+        if (segue.identifier == "addSegue" && sender != nil) {
+                evc.edit = true
+                evc.article = sender as? Article
+            }
+        }
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("SELECTED:",indexPath.row, articles![indexPath.row])
+        performSegue(withIdentifier: "addSegue", sender: articles![indexPath.row])
+    }
+    
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            articleManager.removeArticle(article: articles![indexPath.row])
+            articleManager.save()
+            articles?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+//            self.tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

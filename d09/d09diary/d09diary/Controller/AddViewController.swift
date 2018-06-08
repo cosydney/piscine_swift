@@ -9,27 +9,51 @@
 import UIKit
 import sycohen2018
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let articleManager = ArticleManager()
     var doneButton: UIBarButtonItem?
+    let pickerController = UIImagePickerController()
+    var edit: Bool = false
+    var article: Article?
+
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titreInput: UITextField!
     @IBOutlet weak var contentInput: UITextView!
     
+    @IBAction func pickImage(_ sender: UIButton) {
+        showPickerLibrary()
+    }
+    
+    @IBAction func takePhoto(_ sender: UIButton) {
+        showPickerCamera()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerController.delegate = self
         doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(doneAction))
         navigationItem.rightBarButtonItem = doneButton
         doneButton!.isEnabled = false
         titreInput.addTarget(self, action: #selector(editingHasStarted), for: .editingChanged)
+        if (edit) {
+            self.setfields()
+            doneButton!.isEnabled = true
+        }
         // Do any additional setup after loading the view.
     }
 
+    func setfields() {
+        print("setting up fields")
+        titreInput.text = article?.titre
+        contentInput.text = article?.content
+        if let image = article?.image {
+            imageView.image = UIImage(data: image as Data)
+        }
+    }
+    
     func createArticle() {
-  
-        
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
         }
@@ -43,20 +67,74 @@ class AddViewController: UIViewController {
     }
     
     @objc func doneAction() {
-        print("creating article")
-        let article = articleManager.newArticle()
-        article.titre = titreInput.text
-        article.content = contentInput.text
-        article.creationDate = NSDate()
-        article.langue = Locale.current.languageCode!
-        article.modificationDate = NSDate()
+        if (edit) {
+            print("do something here")
+            article?.titre = titreInput.text
+            article?.content = contentInput.text
+            article?.langue = Locale.current.languageCode!
+            article?.modificationDate = NSDate()
+            if imageView.image != nil {
+                if let imageData = UIImageJPEGRepresentation(imageView.image!, 1) {
+                    article?.image = imageData as NSData?
+                } else {
+                    print("saveArticle : error")
+                }
+            }
+        } else {
+            let article = articleManager.newArticle()
+            article.titre = titreInput.text
+            article.content = contentInput.text
+            article.creationDate = NSDate()
+            article.langue = Locale.current.languageCode!
+            article.modificationDate = NSDate()
+            if imageView.image != nil {
+                if let imageData = UIImageJPEGRepresentation(imageView.image!, 1) {
+                    article.image = imageData as NSData?
+                } else {
+                    print("saveArticle : error")
+                }
+            }
+        }
         articleManager.save()
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
         }
     }
     
-
+    func showPickerLibrary() {
+        if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)) {
+            pickerController.sourceType = .photoLibrary
+            present(pickerController, animated: true, completion: nil)
+        }
+        else {
+            let alert = UIAlertController(title: "Alert", message: "No Library available", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func showPickerCamera() {
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            pickerController.sourceType = .camera
+            present(pickerController, animated: true, completion: nil)
+        }
+        else {
+            let alert = UIAlertController(title: "Alert", message: "No Camera available", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("imagePickerController didFinishPickingMediaWithInfo")
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.image = image
+        } else{
+            print("Something went wrong")
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
