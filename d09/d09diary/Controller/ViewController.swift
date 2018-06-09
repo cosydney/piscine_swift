@@ -21,9 +21,9 @@ class ViewController: UIViewController {
 
         let context = LAContext()
         var error: NSError?
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
             let reason = "Authenticate with Touch ID"
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason, reply:
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason, reply:
                 {(succes, error) in
                     if succes {
                         DispatchQueue.main.async {
@@ -31,14 +31,36 @@ class ViewController: UIViewController {
                         }
                     }
                     else {
-                        self.showAlertController("Touch ID Authentication Failed")
+//                        self.showAlertController("Touch ID Authentication Failed")
+//                        authenticateUser()
                     }
                     })
         }
         else {
-            showAlertController("Touch ID not available")
+//            authenticateUser()
         }
     }
+    
+    
+    func authenticateUser() {
+        let context = LAContext()
+    
+        context.evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: "Please authenticate to proceed.") { [weak self] (success, error) in
+    
+            guard success else {
+                DispatchQueue.main.async {
+                
+                    // show something here to block the user from continuing
+                }
+            return
+            }
+                DispatchQueue.main.async {
+                    self?.performSegue(withIdentifier: "loginSegue", sender: nil)
+                // do something here to continue loading your app, e.g. call a delegate method
+            }
+        }
+    }
+    
 
     func showAlertController(_ message: String) {
         let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)

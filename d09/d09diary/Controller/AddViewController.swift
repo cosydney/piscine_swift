@@ -68,25 +68,35 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
     @objc func doneAction() {
-        let newarticle = articleManager!.newArticle()
         if (edit) {
-            newarticle.creationDate = article?.creationDate
-            articleManager?.removeArticle(article: article!)
+            article?.modificationDate = NSDate()
+            article?.titre = titreInput.text
+            article?.content = contentInput.text
+            if imageView.image != nil {
+                if let imageData = UIImageJPEGRepresentation(imageView.image!, 1) {
+                    article?.image = imageData as NSData?
+                } else {
+                    print("saveArticle : error")
+                }
+            }
+            article?.modificationDate = NSDate()
+            article?.langue = Locale.current.languageCode!
         } else {
+            let newarticle = articleManager!.newArticle()
             newarticle.creationDate = NSDate()
             newarticle.modificationDate = NSDate()
-        }
-        newarticle.titre = titreInput.text
-        newarticle.content = contentInput.text
-        if imageView.image != nil {
-            if let imageData = UIImageJPEGRepresentation(imageView.image!, 1) {
-                newarticle.image = imageData as NSData?
-            } else {
-                print("saveArticle : error")
+            newarticle.titre = titreInput.text
+            newarticle.content = contentInput.text
+            if imageView.image != nil {
+                if let imageData = UIImageJPEGRepresentation(imageView.image!, 1) {
+                    newarticle.image = imageData as NSData?
+                } else {
+                    print("saveArticle : error")
+                }
             }
+            newarticle.modificationDate = NSDate()
+            newarticle.langue = Locale.current.languageCode!
         }
-        newarticle.modificationDate = NSDate()
-        newarticle.langue = Locale.current.languageCode!
         articleManager!.save()
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)

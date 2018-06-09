@@ -37,7 +37,6 @@ class ArticleTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("reloading here")
         articles = articleManager.getArticles(withLang: langue)
         self.tableView.reloadData()
     }
@@ -63,15 +62,21 @@ class ArticleTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ArticleTableViewCell
         
         if (articles?[indexPath.row] != nil) {
-        cell.titre.text = articles![indexPath.row].titre
-        if (articles![indexPath.row].creationDate != nil) {
-            cell.creationDate.text = format_date(date: articles![indexPath.row].creationDate!)
-            cell.modificationDate.text = format_date(date: articles![indexPath.row].modificationDate!)
+        let currentArticle = articles![indexPath.row]
+        cell.titre.text = currentArticle.titre
+        if (currentArticle.creationDate != nil) {
+            cell.creationDate.text = format_date(date: currentArticle.creationDate!)
+            cell.modificationDate.text = format_date(date: currentArticle.modificationDate!)
         }
 
-        cell.photo.image = (articles![indexPath.row].image != nil) ? UIImage(data: articles![indexPath.row].image! as Data) : nil
-        cell.descriptionLabel.text = articles![indexPath.row].content
+        if cell.creationDate.text == cell.modificationDate.text! {
+            cell.modificationDate.isHidden = true
         }
+        
+        
+        cell.photo.image = (currentArticle.image != nil) ? UIImage(data: currentArticle.image! as Data) : nil
+        cell.descriptionLabel.text = currentArticle.content
+    }
         return cell
     }
     
